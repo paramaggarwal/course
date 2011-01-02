@@ -36,19 +36,79 @@
 
 	<script type="text/javascript">
 
+		$(document).ready(function(){
+
+                        Nifty("div#box1,div#box2,div#box3,div#box4,div#box5,div#box6,div#box7,div#box8,div#footer");
+
+			Nifty("div#navbar,div#notices","transparent");
+
+                        $("#box1_title").click(function () { $("#box1_content").slideToggle("slow"); });
+
+                        $("#box2_title").click(function () { $("#box2_content").slideToggle("slow"); });
+
+                        $("#box3_title").click(function () { $("#box3_content").slideToggle("slow"); });
+
+                        $("#box4_title").click(function () { $("#box4_content").slideToggle("slow"); });
+
+                        $("#box5_title").click(function () { $("#box5_content").slideToggle("slow"); });
+
+                        $("#box6_title").click(function () { $("#box6_content").slideToggle("slow"); });
+
+                        $("#box7_title").click(function () { $("#box7_content").slideToggle("slow"); });
+
+                        $("#box8_title").click(function () { $("#box8_content").slideToggle("slow"); });
+
+                        
+
+                });
+
+	</script>
+
+	
+
+	<script type="text/javascript">
+
+		var url = "./includes/login.php";
+
+		var what = "LoginStatus(req.responseText)";
 
 
-                function notifyLogin(loginStatus)
+
+		function CheckLogin()
 
 		{
 
-			if(loginStatus == 0) {
+			var username = document.getElementById("username").value;
 
-				$("#Incorrect").html("Username or Password seems wrong.<br>Did you <a href='forgot.php'>forget your password</a>?").show("slow");
+			var password = document.getElementById("password").value;
+				
+				
+
+			if(username == '' && password == '') {
+
+				document.getElementById('Incorrect').innerHTML = "";
+
+			} else {
+
+				DoCallback_login("username="+username+"&password="+password);
 
 			}
 
-			else if(loginStatus == 1) {
+		}
+
+
+
+		function LoginStatus(Status_l)
+
+		{
+
+			if(Status_l == 0) {
+
+				document.getElementById('Incorrect').innerHTML = 'Username or Password seems wrong.<br>Did you <a href="forgot.php">forget your password</a>?';
+
+			}
+
+			else if(Status_l == 1) {
 
 				window.location = "http://www.iiitcslcentral.co.cc/";
 
@@ -56,47 +116,113 @@
 
 			else {
 
-				$("#Incorrect").hide("slow");
+				document.getElementById('Incorrect').innerHTML = "";
 
 			}
 
 		}
 
-                    
+	</script>
 
-                function notifyFeedback(feedbackStatus)
+	
 
-		{
+	<script type="text/javascript" >
 
-			if(feedbackStatus == 0) {
+		var urlf = "./includes/feedback.php";
 
-				$("#FeedbackMessage").html("Oops! We couldn't get it.").show("slow");
+		var whatf = "FeedbackStatus(req.responseText)";
+
+
+
+		function PostFeedback()
+
+		{	
+
+			var feedback = document.getElementById("feedback_text").value;
+
+			var email = document.getElementById("email").value;
+
+				
+
+			if(feedback == '' || email == '') {
+
+				document.getElementById('FeedbackMessage').innerHTML = "";
+
+			} else {
+
+				DoCallback_feedback("feedback="+feedback+"&email="+email);
 
 			}
 
-			else if(feedbackStatus == 1){
+		}
 
-				$("#FeedbackMessage").html("We got it. Thanks a lot!").show("slow");
+
+
+		function FeedbackStatus(Status_f)
+
+		{
+
+			if(Status_f == 0) {
+
+				document.getElementById('FeedbackMessage').innerHTML = "Oops! We couldn't get it.";
+
+			}
+
+			else if(Status_f == 1){
+
+				document.getElementById('FeedbackMessage').innerHTML = "We got it. Thanks a lot!";
 
 			}
 
 			else {
 
-				$("#FeedbackMessage").hide("slow");
+				document.getElementById('FeedbackMessage').innerHTML = "";
 
 			}	
 
 		}
 
+	</script>
+
+    
+
+    	<script type="text/javascript" >
+
+		var urlp = "./includes/profilesearch.php";
+
+		var whatp = "ProfileStatus(req.responseText)";
 
 
-                function notifyProfiles(Status_p)
+
+		function LookupStudent()
+
+		{	
+
+			var rollno = document.getElementById("rollno").value;
+
+				
+
+			if(rollno == '') {
+
+				document.getElementById('SearchMessage').innerHTML = "";
+
+			} else {
+
+				DoCallback_profile("rollno="+rollno);
+
+			}
+
+		}
+
+
+
+		function ProfileStatus(Status_p)
 
 		{
 
 			if(Status_p == 0) {
 
-				$("#SearchMessage").html("Oops. There is no one with that Roll No./Name on our records. Maybe you should try something else in the search term.").show("slow");
+				document.getElementById('SearchMessage').innerHTML = "Oops. There is no one with that Roll No./Name on our records. Maybe you should try something else in the search term.";
 
 			}
 
@@ -106,7 +232,7 @@
 
 				var outputArray = new Array();
 
- 
+				
 
 				if(output.charAt(0) == '*') {
 
@@ -118,7 +244,7 @@
 
 					var name = new String();
 
- 
+
 
 					list = "More than one records have been found. Please select the one you want: <br>";
 
@@ -134,13 +260,13 @@
 
 					}
 
-					$("#SearchMessage").html(list).show("slow");
+					document.getElementById('SearchMessage').innerHTML = list;
 
 				}
 
 				else {
 
-					$("#SearchMessage").hide("slow");
+					document.getElementById('SearchMessage').innerHTML = "";
 
 					window.location = "profiles.php?rollno="+Status_p;
 
@@ -150,211 +276,11 @@
 
 		}
 
-
-
-                function toggleArrow(id) {
-
-                    if ( $("#box" + id + "_content").css("height") == '1px' ) {
-
-                        $("#box" + id + "_content_toggle").html("<img src='./images/arrow_down_2.gif'>");
-
-                    }
-
-                    else {
-
-                        $("#box" + id + "_content_toggle").html("<img src='./images/arrow_right_2.gif'>");
-
-                    }
-
-                }
-
-
-
-
-
-		$(document).ready(function(){
-
-                        Nifty("div#box1,div#box2,div#box3,div#box4,div#box5,div#box6,div#box7,div#box8,div#footer");
-
-			Nifty("div#navbar,div#notices","transparent");
-
-
-
-                        $("#box1_title").click(function () { $("#box1_content").slideToggle("normal"); toggleArrow(1);});
-
-                        $("#box2_title").click(function () { $("#box2_content").slideToggle("normal"); toggleArrow(2);});
-
-                        $("#box3_title").click(function () { $("#box3_content").slideToggle("normal"); toggleArrow(3);});
-
-                        $("#box4_title").click(function () { $("#box4_content").slideToggle("normal"); toggleArrow(4);});
-
-                        $("#box5_title").click(function () { $("#box5_content").slideToggle("normal"); toggleArrow(5);});
-
-                        $("#box6_title").click(function () { $("#box6_content").slideToggle("normal"); toggleArrow(6);});
-
-                        $("#box7_title").click(function () { $("#box7_content").slideToggle("normal"); toggleArrow(7);});
-
-                        $("#box8_title").click(function () { $("#box8_content").slideToggle("normal"); toggleArrow(8);});
-
-                        
-
-                        $("input[value='Login']").click(function () {
-
-                             var username = $("input[name='username']").val(); 
-
-              		     var password = $("input[name='password']").val();
-
-                            $.post("./includes/login.php", { username: username, password: password },
-
-                                function(data){
-
-                                   notifyLogin(data);
-
-                                }
-
-                             );
-
-                        });
-
-
-
-                        $("input[name='password']").keypress(function (e) {
-
-                            if(e.which == 13) {
-
-  	                          var username = $("input[name='username']").val(); 
-
-              		          var password = $("input[name='password']").val();
-
-                                  $.post("./includes/login.php", { username: username, password: password },
-
-                                       function(data){
-
-                                           notifyLogin(data);
-
-                                       }
-
-                                   );
-
-                             }
-
-                        });
-
-
-
-                         $("input[name='password']").keypress(function (e) {
-
-                                    kc = e.keyCode?e.keyCode:e.which;
-
-                                    sk = e.shiftKey?e.shiftKey:((kc == 16)?true:false);
-
-                                    if(((kc >= 65 && kc <= 90) && !sk)||((kc >= 97 && kc <= 122) && sk))
-
-  	                                 $("#Incorrect").html("Caps Lock is ON").show("slow");
-
-                                    else
-
-                                         $("#Incorrect").hide("slow");
-
-                         });
-
-
-
-
-
-                        $("input[value='Submit']").click(function () {
-
-                             var feedback = $("#feedback_text").val(); 
-
-              		     var email = $("input[name='email']").val();
-
-                            $.post("./includes/feedback.php", { username: feedback, password: email },
-
-                                function(data){
-
-                                   notifyFeedback(data);
-
-                                }
-
-                             );
-
-                        });
-
-
-
-
-
-                        $("input[name='email']").keypress(function (e) {
-
-                             if(e.which == 13) {
-
-  	                             var feedback = $("#feedback_text").val(); 
-
-              		             var email = $("input[name='email']").val();
-
-                                     $.post("./includes/feedback.php", { username: feedback, password: email },
-
-                                           function(data){
-
-                                              notifyFeedback(data);
-
-                                            }
-
-                                      );
-
-                              }
-
-                         });
-
-
-
-                        $("input[value='Search']").click(function () {
-
-                             var rollno = $("input[name='rollno']").val();
-
-                            $.post("./includes/profilesearch.php", { rollno: rollno },
-
-                                function(data){
-
-                                   notifyProfiles(data);
-
-                                }
-
-                             );
-
-                        });
-
-                        
-
-                        $("input[name='rollno']").keypress(function (e) {
-
-                            if(e.which == 13) {
-
-  	                          var rollno = $("input[name='rollno']").val();
-
-                                  $.post("./includes/profilesearch.php", { rollno: rollno },
-
-                                     function(data){
-
-                                        notifyProfiles(data);
-
-                                      }
-
-                                   );
-
-                             }
-
-                        });
-
-
-
-
-
-
-
-                });
-
 	</script>
+
+
+
+	<script type="text/javascript" src="./js/ajax.js"></script>
 
 	
 
@@ -376,11 +302,11 @@
 
 		<div class="container" id="box1">
 
-			<div class="title clickable visualIEFloatFix" id="box1_title" >
+			<div class="title clickable visualIEFloatFix" id="box1_title" onmousedown="toggleDiv('box1_content',2)">
 
 				<P class="togglebutton">
 
-				<A href="javascript:;" class="toggle" id="box1_content_toggle"><img src='./images/arrow_down_2.gif'></A></P>
+				<A href="javascript:;" class="toggle" id="box1_content_toggle"><IMG src="./images/arrow_down_2.gif"></A></P>
 
 				<H2>Chit-Chat Updates</H2>
 
@@ -417,7 +343,7 @@
 			<div class="content" id="box2_content" >
 
 				<?php include("./includes/myprofile.php"); ?>
-                <a href="edipprofile.php">>>Edit Your Profile</a>
+                <a href="editprofile.php?roll_no=<?php echo $_SESSION['username']; ?>"> >> Edit Your Profile </a>
 
 			</div>
 
@@ -569,11 +495,11 @@
 
 				<p align="left">Try entering a Roll No. or a Name:</p>
 
-				<div align="left"><input type="text" name="rollno" style="width:60%;">
+				<div align="left"><input type="text" name="rollno" id="rollno" style="width:60%;" onkeypress="checkEnterforSearch(event)">
 
-				<input type="button" style="padding: 1px 12px 1px 12px;" value="Search"></div>
+				<input type="button" style="padding: 1px 12px 1px 12px;" value="Search" onclick="LookupStudent()"></div>
 
-                        			<div align="left"><div id="SearchMessage" style="display:none;" class="error"></div></div>
+                        			<div align="left"><div id="SearchMessage" class="error"></div></div>
 
 			</div>
 
@@ -753,13 +679,13 @@ echo "<a href='http://www.iiitcslcentral.co.cc/register.php' >Register</a>";
 
 					<td align="right" bgcolor="#E0E0E0" class="tablecontents">Password:</td>
 
-					<td align="left"><input type="password" name="password" size=15 id="password" ></td>
+					<td align="left"><input type="password" name="password" size=15 id="password" onkeypress="checkCaps(event); checkEnterforLogin(event)" ></td>
 
 				</tr>
 
 				<tr align="center">
 
-					<td align="center" colspan="2"><div id="Incorrect" style="display:none;" class="error"></div></td>
+					<td align="center" colspan="2"><div id="Incorrect" class="error"></div></td>
 
 				</tr>
 
@@ -767,7 +693,7 @@ echo "<a href='http://www.iiitcslcentral.co.cc/register.php' >Register</a>";
 
 					<td ></td>
 
-					<td align="center"><input type="button" style="padding: 1px 12px 1px 12px;" value="Login"></td>
+					<td align="center"><input type="button" style="padding: 1px 12px 1px 12px;" value="Login" onclick="CheckLogin()"></td>
 
 				</tr>
 
@@ -929,11 +855,11 @@ echo "<a href='http://www.iiitcslcentral.co.cc/register.php' >Register</a>";
 
     						<P>Please include your email address if you&#39;d like us to respond to a specific question.<BR></P>
 
-						<P class="center"><INPUT type="text" name="email" style="width:80%;"></P>
+						<P class="center"><INPUT type="text" name="email" id="email" onkeypress="checkEnterforFeedback(event)" style="width:80%;"></P>
 
-                        					<p class="center"><div id="FeedbackMessage" style="display:none;" class="error"></div></p>
+                        					<p class="center"><div id="FeedbackMessage" class="error"></div></p>
 
-						<P align="center"><input type="button" style="padding: 1px 12px 1px 12px;" value="Submit"></P>
+						<P align="center"><input type="button" style="padding: 1px 12px 1px 12px;" value="Submit" onclick="PostFeedback()"></P>
 
 				</div>
 
