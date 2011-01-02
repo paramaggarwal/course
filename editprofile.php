@@ -74,15 +74,15 @@ if(isset($_POST['submit']))
 	<script type="text/javascript">
 		function toggleArrow(id) {
 			if ( $("#box" + id + "_content").css("height") == '1px' ) {
-				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_down_2.gif'>");
+				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_down_2.png'>");
 			}
 			else {
-				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_right_2.gif'>");
+				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_right_2.png'>");
 			}
 		}
 
 		$(document).ready(function(){
-			Nifty("div#box1,div#footer,div#navbar");
+			Nifty("div#box1,div#footer,div#navbar" , "transparent");
 
 			$("#box1_title").click(function () { $("#box1_content").slideToggle("normal"); toggleArrow(1);});
 		});
@@ -96,9 +96,32 @@ if(isset($_POST['submit']))
 
 <body>
 
-<?php include("./includes/header.php"); ?>
-
+<div id="header-content"> 
+	<h1>Communication Skills Lab - IIIT, Allahabad</h1> 
+</div>
+ 
+<div id="header-image" style="width: 7%; height: 85%;" >
+	<img src="http://www.iiitcslcentral.co.cc/images/header.png" style="height:100%; width:100%;" >
+</div>
+ 
+ 
 <div id="main">
+ 
+<div id="navbar">
+	<TABLE class="navbar">
+	<TBODY>
+	<TR>
+ 
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/'; ">Home</TD>
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/chit-chat/'; ">Chit-Chat</TD>
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/results.php'; ">Results</TD>
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/contact.php'; ">Contact</TD>
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/about.php'; ">About</TD>
+ 
+	</TR>
+	</TBODY>
+	</TABLE>
+</div>
 
 	<div class="column" style="width:900px">
 
@@ -108,7 +131,7 @@ if(isset($_POST['submit']))
 
 				<P class="togglebutton">
 
-				<A href="javascript:;" class="toggle" id="box1_content_toggle"><IMG src="./images/arrow_down_2.gif"></A></P>
+				<A href="javascript:;" class="toggle" id="box1_content_toggle"><IMG src="./images/arrow_down_2.png"></A></P>
 
 				<H2>Edit Your Profile</H2>
 

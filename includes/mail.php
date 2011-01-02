@@ -36,17 +36,17 @@ if(isset($_POST['submit'])) {
 		$subject = $_POST['subject'];
 	}
 
-	$from = "admin@iiitcslcentral.co.cc" ;
+	$from = "IIIT CSL Central <admin@iiitcslcentral.co.cc>" ;
 	$details = 'From: ' . $from . "\r\n" . 'Reply-To: paramaggarwal@gmail.com' . "\r\n";
 
 
 for($i=8001; $i<8150; $i++) {
-               $to = "iit200".'$i'.'@iiita.ac.in';
+               $to = "iit200".$i.'@iiita.ac.in';
                mail( $to , $subject, $message, $details);
 }
 
 for($i=8001; $i<8080; $i++) {
-               $to = "iec200".'$i'.'@iiita.ac.in';
+               $to = "iec200".$i.'@iiita.ac.in';
                mail( $to , $subject, $message, $details);
 }
 
@@ -74,6 +74,6 @@ Mail: <br /><textarea name="contents" style="width:60%; height:40%;"><?php echo 
 </html>
 <?php
 } else {
-	echo "You hacker!!! Please login as admin!";
+	echo "Please login as admin.";
 }
 ?>  

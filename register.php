@@ -38,10 +38,10 @@ header("Location: http://www.iiitcslcentral.co.cc/profiles.php?rollno=" . $user_
 	<script type="text/javascript">
 		function toggleArrow(id) {
 			if ( $("#box" + id + "_content").css("height") == '1px' ) {
-				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_down_2.gif'>");
+				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_down_2.png'>");
 			}
 			else {
-				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_right_2.gif'>");
+				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_right_2.png'>");
 			}
 		}
 
@@ -56,9 +56,32 @@ header("Location: http://www.iiitcslcentral.co.cc/profiles.php?rollno=" . $user_
 
 <body>
 
-<?php include("./includes/header.php"); ?>
-
-<div id="main" style="margin: auto;">
+<div id="header-content"> 
+	<h1>Communication Skills Lab - IIIT, Allahabad</h1> 
+</div>
+ 
+<div id="header-image" style="width: 7%; height: 85%;" >
+	<img src="http://www.iiitcslcentral.co.cc/images/header.png" style="height:100%; width:100%;" >
+</div>
+ 
+ 
+<div id="main">
+ 
+<div id="navbar">
+	<TABLE class="navbar">
+	<TBODY>
+	<TR>
+ 
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/'; ">Home</TD>
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/chit-chat/'; ">Chit-Chat</TD>
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/results.php'; ">Results</TD>
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/contact.php'; ">Contact</TD>
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/about.php'; ">About</TD>
+ 
+	</TR>
+	</TBODY>
+	</TABLE>
+</div>
 <?php
 if($_SESSION['loginok'] == "ok" && $_SESSION['level'] == "4")
 {
@@ -67,7 +90,7 @@ if($_SESSION['loginok'] == "ok" && $_SESSION['level'] == "4")
 		<div class="container" id="box1">
 			<div class="title clickable visualIEFloatFix" id="box1_title" ">
 				<P class="togglebutton">
-				<A href="javascript:;" class="toggle" id="box1_content_toggle"><IMG src="http://www.iiitcslcentral.co.cc/images/arrow_down_2.gif"></A></P>
+				<A href="javascript:;" class="toggle" id="box1_content_toggle"><IMG src="http://www.iiitcslcentral.co.cc/images/arrow_down_2.png"></A></P>
 				<H2>Register</H2>
 			</div>
 			<div class="content" id="box1_content" >

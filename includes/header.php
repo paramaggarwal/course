@@ -2,7 +2,7 @@
 	<h1>Communication Skills Lab - IIIT, Allahabad</h1> 
 </div>
 
-<div id="header-image" style="width:7%; height:85%;" >
+<div id="header-image" style="width: 7%; height: 85%;" >
 	<img src="http://www.iiitcslcentral.co.cc/images/header.png" style="height:100%; width:100%;" >
 </div>
 

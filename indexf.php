@@ -43,6 +43,16 @@
 				$("#FeedbackMessage").hide("slow");
 			}	
 		}
+		
+		function notifyUpload(uploadStatus)
+		{
+			if(uploadStatus != "") {
+				$("#UploadMessage").html(uploadStatus).show("slow");
+			}
+			else {
+				$("#UploadMessage").hide("slow");
+			}	
+		}
 
                 function notifyProfiles(Status_p)
 		{
@@ -103,6 +113,15 @@
 				$.post("./includes/login.php", { username: username, password: password },
 				function(data){
 				   notifyLogin(data);
+				}
+				);
+			});
+			
+			$("input[name='UploadFile']").click(function () {
+				var file = $("input[@typ=file]").val();
+				$.post("./includes/upload.php", {file: file},
+				function(data){
+				   notifyUpload(data);
 				}
 				);
 			});
@@ -483,7 +502,8 @@ if( $_SESSION['loginok'] == "ok" && $_SESSION['level'] == '1')
 					<label for="file">Filename:</label>
 					<input type="file" name="file" id="file" /> 
 					<br />
-					<input type="submit" name="submit" value="Submit" />
+					<input type="submit" name="UploadFile" value="Submit" />
+					<div id="UploadMessage" class="error"></div>
 				</form>
 			</div>
 		</div>

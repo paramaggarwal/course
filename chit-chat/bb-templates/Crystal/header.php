@@ -14,8 +14,7 @@
 		
                 $(document).ready(function(){
 
-                        Nifty("div#login,div#latestupdates,div#forums,div#forum,div#topic,div#footer");
-			Nifty("div#navbar,div#notices","transparent");
+			Nifty("div#login,div#latestupdates,div#forums,div#forum,div#topic,div#footer,div#navbar,div#notices","transparent");
 
                         $("#login_title").click(function () { $("#login_content").slideToggle("normal"); toggleArrow(1);});
                         $("#latestupdates_title").click(function () { $("#latestupdates_content").slideToggle("normal"); toggleArrow(2);});
@@ -61,9 +60,11 @@
 	<h1>Communication Skills Lab - IIIT, Allahabad</h1> 
 </div>
 
-<div id="header-image">
-	<img src="http://iiitcslcentral.co.cc/images/header.png" height=200 width=200 />
+<div id="header-image" style="width: 7%; height: 85%;" >
+	<img src="http://www.iiitcslcentral.co.cc/images/header.png" style="height:100%; width:100%;" >
 </div>
+	
+<div id="page">	
 
 <div id="navbar">
 	<TABLE class="navbar">
@@ -71,18 +72,16 @@
 	<TR>
 	
 	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/'; ">Home</TD>
-	<TD class="current">Chit-Chat</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/results/'; ">Results</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/contact/'; ">Contact</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/about/'; ">About</TD>
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/chit-chat/'; ">Chit-Chat</TD>
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/results.php'; ">Results</TD>
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/contact.php'; ">Contact</TD>
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/about.php'; ">About</TD>
 	
 	</TR>
 	</TBODY>
 	</TABLE>
 </div>
-	
-<div id="page">	
-	
+
 <div id="content" class="clearfix">
 
 <div class="container" id="login" >

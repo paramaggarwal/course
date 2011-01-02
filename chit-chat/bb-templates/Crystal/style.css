@@ -77,7 +77,7 @@ h2 {
 
 
 .alt {
-	color: #797268;
+	color: #90C73E;//#797268;
 	}
 
 
@@ -383,7 +383,7 @@ tr {
 	border-bottom: 1px solid #C1DAD7;
 	background: 0;
 	padding: 6px 6px 6px 12px;
-	color: #4f6b72;
+	color:  #90C73E;//rgb(0, 48, 69);//#4f6b72;
 	}
 
 th { 

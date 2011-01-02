@@ -29,15 +29,15 @@ if(mysql_num_rows($result)>0)
 	
 		function toggleArrow(id) {
 			if ( $("#box" + id + "_content").css("height") == '1px' ) {
-				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_down_2.gif'>");
+				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_down_2.png'>");
 			}
 			else {
-				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_right_2.gif'>");
+				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_right_2.png'>");
 			}
 		}
 
 		$(document).ready(function(){
-                        Nifty("div#box1,div#box2,div#box3,div#navbar,div#footer");
+                        Nifty("div#box1,div#box2,div#box3,div#navbar,div#footer","transparent");
  
                         $("#box1_title").click(function () { $("#box1_content").slideToggle("normal"); toggleArrow(1);});
                         $("#box2_title").click(function () { $("#box2_content").slideToggle("normal"); toggleArrow(2);});
@@ -49,9 +49,33 @@ if(mysql_num_rows($result)>0)
 
 <body>
 
-<?php include("./includes/header.php"); ?>
-
+<div id="header-content"> 
+	<h1>Communication Skills Lab - IIIT, Allahabad</h1> 
+</div>
+ 
+<div id="header-image" style="width: 7%; height: 85%;" >
+	<img src="http://www.iiitcslcentral.co.cc/images/header.png" style="height:100%; width:100%;" >
+</div>
+ 
+ 
 <div id="main" style="margin: auto;">
+ 
+<div id="navbar">
+	<TABLE class="navbar">
+	<TBODY>
+	<TR>
+ 
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/'; ">Home</TD>
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/chit-chat/'; ">Chit-Chat</TD>
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/results.php'; ">Results</TD>
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/contact.php'; ">Contact</TD>
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/about.php'; ">About</TD>
+ 
+	</TR>
+	</TBODY>
+	</TABLE>
+</div>
+
 <?php
 if($found) {
 ?>
@@ -59,7 +83,7 @@ if($found) {
 		<div class="container" id="box1">
 			<div class="title clickable visualIEFloatFix" id="box1_title">
 				<P class="togglebutton">
-				<A href="javascript:;" class="toggle" id="box1_content_toggle"><IMG src="http://www.iiitcslcentral.co.cc/images/arrow_down_2.gif"></A></P>
+				<A href="javascript:;" class="toggle" id="box1_content_toggle"><IMG src="http://www.iiitcslcentral.co.cc/images/arrow_down_2.png"></A></P>
 				<H2>Personal Details</H2>
 			</div>
 			<div class="content" id="box1_content" >
@@ -74,7 +98,7 @@ if($found) {
 		<div class="container" id="box2">
                 		<div class="title clickable visualIEFloatFix" id="box2_title" >
                   			<P class="togglebutton">
-				<A href="javascript:;" class="toggle" id="box2_content_toggle"><IMG src="http://www.iiitcslcentral.co.cc/images/arrow_down_2.gif"></A></P>
+				<A href="javascript:;" class="toggle" id="box2_content_toggle"><IMG src="http://www.iiitcslcentral.co.cc/images/arrow_down_2.png"></A></P>
 				<H2>Professional Details</H2>
 			</div>
 			<div class="content" id="box2_content" >
@@ -90,7 +114,7 @@ if($found) {
 		<div class="container" id="box3">
 			<div class="title clickable visualIEFloatFix" id="box3_title" >
 				<P class="togglebutton">
-				<A href="javascript:;" class="toggle" id="box3_content_toggle"><IMG src="http://www.iiitcslcentral.co.cc/images/arrow_down_2.gif"></A></P>
+				<A href="javascript:;" class="toggle" id="box3_content_toggle"><IMG src="http://www.iiitcslcentral.co.cc/images/arrow_down_2.png"></A></P>
 				<H2>Other Details</H2>
 			</div>
 			<div class="content" id="box3_content" >
