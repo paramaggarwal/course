@@ -55,7 +55,7 @@ if(isset($_POST['Submit']))
 		}
 
 		$(document).ready(function(){
-			Nifty("div#box1,div#footer,div#navbar");
+			Nifty("div.container,div.menu","transparent");
 
 			$("#box1_title").click(function () { $("#box1_content").slideToggle("normal"); toggleArrow(1);});
 		});
@@ -64,8 +64,9 @@ if(isset($_POST['Submit']))
 </head>
 
 <body>
-<?php include("header.php"); ?>
-<div id="main">
+
+<?php include('./includes/header.php'); ?>
+
 	<div class="column" style="width:900px">
 		<div class="container" id="box1" >
 			<div class="title clickable visualIEFloatFix" id="box1_title" >
@@ -111,6 +112,9 @@ if(isset($_POST['Submit']))
 	</div>
 <div class="spacer"></div>
 </div>
-<?php include("footer.php"); ?>
+
+
+<?php include('./includes/footer.php'); ?>
+
 
 </body></html>

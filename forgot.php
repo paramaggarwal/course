@@ -83,15 +83,15 @@ mysql_close ($con);
 	<script type="text/javascript">
 		function toggleArrow(id) {
 			if ( $("#box" + id + "_content").css("height") == '1px' ) {
-				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_down_2.gif'>");
+				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_down_2.png'>");
 			}
 			else {
-				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_right_2.gif'>");
+				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_right_2.png'>");
 			}
 		}
 
 		$(document).ready(function(){
-			Nifty("div#box1,div#footer,div#navbar");
+			Nifty("div.container,div.menu","transparent");
 
 			$("#box1_title").click(function () { $("#box1_content").slideToggle("normal"); toggleArrow(1);});
 		});
@@ -100,13 +100,14 @@ mysql_close ($con);
 </head>
 
 <body>
-<?php include("./includes/header.php"); ?>
-<div id="main">
+
+<?php include('./includes/header.php'); ?>
+
 	<div class="column" style="width:900px">
 		<div class="container" id="box1" >
 			<div class="title clickable visualIEFloatFix" id="box1_title" >
 				<P class="togglebutton">
-				<A href="javascript:;" class="toggle" id="box1_content_toggle"><IMG src="./images/arrow_down_2.gif"></A></P>
+				<A href="javascript:;" class="toggle" id="box1_content_toggle"><IMG src="./images/arrow_down_2.png"></A></P>
 				<H2>Forgot Password</H2>
 			</div>
 			<div class="content" id="box1_content" >
@@ -147,6 +148,7 @@ mysql_close ($con);
 	</div>
 <div class="spacer"></div>
 </div>
-<?php include("./includes/footer.php"); ?>
 
+
+<?php include('./includes/footer.php'); ?>
 </body></html>

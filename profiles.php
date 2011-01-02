@@ -5,6 +5,15 @@ include("./includes/config.php");
 $found = false;
 
 $rollno = $_GET['rollno'];
+$own = false;
+$user = "";
+
+if(isset($_SESSION['username'])) {
+	$user = $_SESSION['username'];
+        if($user == $rollno) {
+$own=true;
+}
+}
 
 $result = mysql_query("Select * From bb_users where user_login='$rollno'",$con);
 
@@ -37,7 +46,7 @@ if(mysql_num_rows($result)>0)
 		}
 
 		$(document).ready(function(){
-                        Nifty("div#box1,div#box2,div#box3,div#navbar,div#footer","transparent");
+                        Nifty("div.container,div.menu","transparent");
  
                         $("#box1_title").click(function () { $("#box1_content").slideToggle("normal"); toggleArrow(1);});
                         $("#box2_title").click(function () { $("#box2_content").slideToggle("normal"); toggleArrow(2);});
@@ -49,32 +58,8 @@ if(mysql_num_rows($result)>0)
 
 <body>
 
-<div id="header-content"> 
-	<h1>Communication Skills Lab - IIIT, Allahabad</h1> 
-</div>
- 
-<div id="header-image" style="width: 7%; height: 85%;" >
-	<img src="http://www.iiitcslcentral.co.cc/images/header.png" style="height:100%; width:100%;" >
-</div>
- 
- 
-<div id="main" style="margin: auto;">
- 
-<div id="navbar">
-	<TABLE class="navbar">
-	<TBODY>
-	<TR>
- 
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/'; ">Home</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/chit-chat/'; ">Chit-Chat</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/results.php'; ">Results</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/contact.php'; ">Contact</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/about.php'; ">About</TD>
- 
-	</TR>
-	</TBODY>
-	</TABLE>
-</div>
+
+<?php include('./includes/header.php'); ?>
 
 <?php
 if($found) {
@@ -90,6 +75,9 @@ if($found) {
 			<p><b>Name</b> : <?php echo $row['display_name']; ?></p>
 			<p><b>Roll no.</b> : <?php echo $row['user_login']; ?></p>
 			<p><b>Date of Birth</b> : <?php echo $row['dob']; ?></p>
+<?php if($own == true) { ?>
+<p class='error' align='right'><input type='button' value="Edit Profile" onClick="window.location='editprofile.php'" /></p>
+<?php } ?>
 			</div>     
 		</div>
 	</div>
@@ -137,6 +125,7 @@ else {
 }
 ?>
 </div>
-<?php include("./includes/footer.php"); ?>
 
+
+<?php include('./includes/footer.php'); ?>
 </body></html>

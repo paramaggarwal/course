@@ -21,12 +21,15 @@
                 function notifyLogin(loginStatus)
 		{
 			if(loginStatus == 0) {
+                                $("#loading_login").html("");
 				$("#Incorrect").html("Username or Password seems wrong.<br>Did you <a href='forgot.php'>forget your password</a>?").show("slow");
 			}
 			else if(loginStatus == 1) {
+                                $("#loading_login").html("");
 				window.location = "http://www.iiitcslcentral.co.cc/";
 			}
 			else {
+                                $("#loading_login").html("");
 				$("#Incorrect").hide("slow");
 			}
 		}
@@ -34,12 +37,15 @@
                 function notifyFeedback(feedbackStatus)
 		{
 			if(feedbackStatus == 0) {
+                                $("#loading_feedback").html("");
 				$("#FeedbackMessage").html("Oops! We couldn't get it.").show("slow");
 			}
 			else if(feedbackStatus == 1){
+                                $("#loading_feedback").html("");
 				$("#FeedbackMessage").html("We got it. Thanks a lot!").show("slow");
 			}
 			else {
+                                $("#loading_feedback").html("");
 				$("#FeedbackMessage").hide("slow");
 			}	
 		}
@@ -47,6 +53,7 @@
                 function notifyProfiles(Status_p)
 		{
 			if(Status_p == 0) {
+                                $("#loading_search").html("");
 				$("#SearchMessage").html("Oops. There is no one with that Roll No./Name on our records. Maybe you should try something else in the search term.").show("slow");
 			}
 			else{
@@ -66,6 +73,7 @@
 						i++;
 						list += "<a href = 'profiles.php?rollno="+roll+"'> &bull; "+roll+" - "+name+"</a><br>";
 					}
+                                        $("#loading_search").html("");
 					$("#SearchMessage").html(list).show("slow");
 				}
 				else {
@@ -85,7 +93,7 @@
 		}
 
 		$(document).ready(function(){
-			Nifty("div#box1,div#box2,div#box3,div#box4,div#box5,div#box6,div#box7,div#box8,div#box9,div#footer,div#navbar,div#noticesbody,div#notices","transparent");
+			Nifty("div.container,div.menu","transparent");
 
 			$("#box1_title").click(function () { $("#box1_content").slideToggle("normal"); toggleArrow(1);});
 			$("#box2_title").click(function () { $("#box2_content").slideToggle("normal"); toggleArrow(2);});
@@ -98,6 +106,7 @@
 			$("#box9_title").click(function () { $("#box9_content").slideToggle("normal"); toggleArrow(9);});
 
 			$("input[value='Login']").click(function () {
+                                $("#loading_login").html("<img src='./images/spinner.gif' />");
 				var username = $("input[name='username']").val(); 
 				var password = $("input[name='password']").val();
 				$.post("./includes/login.php", { username: username, password: password },
@@ -109,6 +118,7 @@
 
 			$("input[name='password']").keypress(function (e) {
 			    if(e.which == 13) {
+                                   $("#loading_login").html("<img src='./images/spinner.gif' />");
 				  var username = $("input[name='username']").val(); 
 				  var password = $("input[name='password']").val();
 				  $.post("./includes/login.php", { username: username, password: password },
@@ -129,6 +139,7 @@
 			 });
 
 			$("input[value='Submit']").click(function () {
+                             $("#loading_feedback").html("<img src='./images/spinner.gif' />");
 			     var feedback = $("#feedback_text").val(); 
 			     var email = $("input[name='email']").val();
 			    $.post("./includes/feedback.php", { username: feedback, password: email },
@@ -140,6 +151,7 @@
 
 			$("input[name='email']").keypress(function (e) {
 			     if(e.which == 13) {
+                                     $("#loading_feedback").html("<img src='./images/spinner.gif' />");
 				     var feedback = $("#feedback_text").val(); 
 				     var email = $("input[name='email']").val();
 				     $.post("./includes/feedback.php", { username: feedback, password: email },
@@ -151,6 +163,7 @@
 			 });
 
 			$("input[value='Search']").click(function () {
+                            $("#loading_search").html("<img src='./images/spinner.gif' />");
 			     var rollno = $("input[name='rollno']").val();
 			    $.post("./includes/profilesearch.php", { rollno: rollno },
 				function(data){
@@ -161,6 +174,7 @@
 
 			$("input[name='rollno']").keypress(function (e) {
 				if(e.which == 13) {
+                                        $("#loading_search").html("<img src='./images/spinner.gif' />");
 					var rollno = $("input[name='rollno']").val();
 					$.post("./includes/profilesearch.php", { rollno: rollno },
 						function(data){
@@ -178,32 +192,7 @@
 
 <body>
 
-<div id="header-content"> 
-	<h1>Communication Skills Lab - IIIT, Allahabad</h1> 
-</div>
-
-<div id="header-image" style="width: 7%; height: 85%;" >
-	<img src="http://www.iiitcslcentral.co.cc/images/header.png" style="height:100%; width:100%;" >
-</div>
-
-
-<div id="main">
-
-<div id="navbar">
-	<TABLE class="navbar">
-	<TBODY>
-	<TR>
-	
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/'; ">Home</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/chit-chat/'; ">Chit-Chat</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/results.php'; ">Results</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/contact.php'; ">Contact</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/about.php'; ">About</TD>
-	
-	</TR>
-	</TBODY>
-	</TABLE>
-</div>
+<?php include('./includes/header.php'); ?>
 
 	<div class="column">
 		<div class="container" id="box1">
@@ -217,18 +206,19 @@
 			</div>
 		</div>
 <?php
-	if( $_SESSION['loginok'] == "ok")
+	if( $_SESSION['loginok'] == "ok" && $_SESSION['level'] != 2)
 	{
 ?>
 		<div class="container" id="box2">
 			<div class="title clickable visualIEFloatFix" id="box2_title" >
 				<P class="togglebutton">
 				<A href="javascript:;" class="toggle" id="box2_content_toggle"><IMG src="./images/arrow_down_2.png"></A></P>
-				<H2><?php echo $_SESSION['name']; ?>'s Profile</H2>
+				<H2><?php if($_SESSION['name'] != '') {echo $_SESSION['name']."\'s";} ?> Profile</H2>
 			</div>
 			<div class="content" id="box2_content" >
+                                <div align=right ><a href="editprofile.php">Edit</a></div>
 				<?php include("./includes/myprofile.php"); ?>
-				<a href="editprofile.php">Edit</a>
+				
 			</div>
 		</div>
 <?php
@@ -266,7 +256,7 @@
 	if( $_SESSION['loginok'] == "ok" && $_SESSION['level'] == '2' )
 	{
 ?>
-					<form align="right" action="./includes/addnotice.php" method="post">
+					<form align="center" action="./includes/addnotice.php" method="post">
 						<input type="text" name="noticeadd"  align="left" length="20"/>
 						<input type="submit" style="padding: 1px 12px 1px 12px;" value="Add" />
 					</form><br />
@@ -285,9 +275,10 @@
 				<H2>Student Profiles</H2>
 			</div>
 			<div class="content" id="box3_content" >
-				<p align="left">Try entering a Roll No. or a Name:</p>
+				<p align="left">Type a Roll No. or Name to Search:</p>
 				<div align="left"><input type="text" name="rollno" style="width:60%;">
 				<input type="button" style="padding: 1px 12px 1px 12px;" value="Search"></div>
+				<div id="loading_search" align="right"></div>
 				<div align="left"><div id="SearchMessage" style="display:none;" class="error"></div></div>
 			</div>
 		</div>
@@ -306,25 +297,57 @@
 					Important sites here.
 			</div>
 		</div>
+
 <?php
 	}
-	elseif ( $_SESSION['loginok'] == "ok" && $_SESSION['level'] == '2' )
+	else if( $_SESSION['loginok'] == "ok" && $_SESSION['level'] == '2')
 	{
 ?>
+
 
 		<div class="container" id="box8">
 			<div class="title clickable visualIEFloatFix" id="box8_title" >
 				<P class="togglebutton">
 				<A href="javascript:;" class="toggle" id="box8_content_toggle"><IMG src="./images/arrow_down_2.png"></A></P>
-				<H2>Student Evaluation</H2>
-		</div>
-			<div class="content" id="box8_content" >
-
+				<H2>Results</H2>
 			</div>
-	</div>
-
+			<div class="content" id="box8_content" >
+				Upload the Results PDF here.
+				<form action="./includes/upload-res.php" method="post" enctype="multipart/form-data">
+					<label for="file">Filename:</label>
+					<input type="file" name="file" id="file" /> 
+					<br />
+					<input type="submit" name="submit" value="Upload" />
+				</form>
+			</div>
+			</div>
 <?php
 	}
+?>
+
+
+<?php
+if( $_SESSION['loginok'] == "ok" && $_SESSION['level'] == '1')
+{
+?>
+		<div class="container" id="box7">
+			<div class="title clickable visualIEFloatFix" id="box7_title" >
+				<P class="togglebutton">
+				<A href="javascript:;" class="toggle" id="box7_content_toggle"><IMG src="./images/arrow_down_2.png"></A></P>
+				<H2>Project Submission</H2>
+			</div>
+			<div class="content" id="box7_content" >
+				<form action="./includes/upload.php" method="post" enctype="multipart/form-data">
+					<label for="file">Filename:</label>
+					<input type="file" name="file" id="file" /> 
+					<br />
+					<input type="submit" name="submit" value="Upload" />
+				</form>
+			</div>
+		</div>
+         
+<?php
+}
 ?>
 	</div>
 	<div class="column">
@@ -340,6 +363,7 @@
 			</div>
 			<div class="content" id="box4_content" >
 				<p>You are logged in as <b><?php echo $_SESSION['username']; ?></b>.</p>
+				<a href="./changepass.php">Change Password</a>
 <?php
 if($_SESSION['loginok'] == "ok" && $_SESSION['level'] == '4')
 {
@@ -378,7 +402,7 @@ echo "<a href='http://www.iiitcslcentral.co.cc/includes/mail.php' >Send mail to 
 					<td align="center" colspan="2"><div id="Incorrect" style="display:none;" class="error"></div></td>
 				</tr>
 				<tr>
-					<td ></td>
+					<td ><div id="loading_login"><div></td>
 					<td align="center"><input type="button" style="padding: 1px 12px 1px 12px;" value="Login"></td>
 				</tr>
 				</table>
@@ -388,63 +412,29 @@ echo "<a href='http://www.iiitcslcentral.co.cc/includes/mail.php' >Send mail to 
 	}
 ?>
 
+
+		<div class="container" id="box5">
+			<div class="title clickable visualIEFloatFix" id="box5_title" >
+				<P class="togglebutton">
+				<A href="javascript:;" class="toggle" id="box5_content_toggle"><IMG src="./images/arrow_down_2.png"></A></P>
+				<H2>Activities</H2>
+			</div>
+			<div class="content" id="box5_content" >
 <?php
 	if( $_SESSION['loginok'] == "ok" && $_SESSION['level'] == '2' )
 	{
 ?>
-		<div class="container" id="box5">
-			<div class="title clickable visualIEFloatFix" id="box5_title" >
-				<P class="togglebutton">
-				<A href="javascript:;" class="toggle" id="box5_content_toggle"><IMG src="./images/arrow_down_2.png"></A></P>
-				<H2>Activities</H2>
-			</div>
-			<div class="content" id="box5_content" >
-			<form align="right" action="./includes/addactivity.php" method="post">
+			<form align="center" action="./includes/addactivity.php" method="post">
 				<input type="text" name="activityadd"  align="left" length="20"/>
 				<input type="submit" style="padding: 1px 12px 1px 12px;" value="Add" />
 			</form><br />
+<?php
+	}
+?>
 			<?php include("./includes/activities.php"); ?>
 			</div>
 		</div>
-<?php
-	}
-	else
-	{
-?>
-		<div class="container" id="box5">
-			<div class="title clickable visualIEFloatFix" id="box5_title" >
-				<P class="togglebutton">
-				<A href="javascript:;" class="toggle" id="box5_content_toggle"><IMG src="./images/arrow_down_2.png"></A></P>
-				<H2>Activities</H2>
-			</div>
-			<div class="content" id="box5_content" >
- 				<?php include("./includes/activities.php"); ?>
-			</div>
-		</div>
 
-<?php
-	}
-?>
-<?php
-	if( $_SESSION['loginok'] == "ok" && $_SESSION['level'] == '2')
-	{
-?>
-		<div class="container" id="box6">
-			<div class="title clickable visualIEFloatFix" id="box6_title" >
-				<P class="togglebutton">
-				<A href="javascript:;" class="toggle" id="box6_content_toggle"><IMG src="./images/arrow_down_2.png"></A></P>
-				<H2>Results</H2>
-			</div>
-			<div class="content" id="box6_content" >
-				Results page here.
-			</div>
-			</div>
-
-<?php
-	}
-	else
-	{
-?>
 			<div class="container" id="box6">
 			<div class="title clickable visualIEFloatFix" id="box6_title" >
 				<P class="togglebutton">
@@ -457,61 +447,20 @@ echo "<a href='http://www.iiitcslcentral.co.cc/includes/mail.php' >Send mail to 
 						<P class="center"><TEXTAREA name="feedback_text" id="feedback_text" rows="5" cols="40" style="width:80%;"></TEXTAREA></P>
 						<P>Please include your email address if you&#39;d like us to respond to a specific question.<BR></P>
 						<P class="center"><INPUT type="text" name="email" style="width:80%;"></P>
+                                                           <div id="loading_feedback"></div>
                         					<p class="center"><div id="FeedbackMessage" class="error"></div></p>
 						<P align="center"><input type="button" style="padding: 1px 12px 1px 12px;" value="Submit"></P>
 				</div>
 			</div>
         		</div>
 
-<?php
-	}
-?>
 
 
-<?php
-if( $_SESSION['loginok'] == "ok" && $_SESSION['level'] == '1')
-{
-?>
-		<div class="container" id="box7">
-			<div class="title clickable visualIEFloatFix" id="box7_title" >
-				<P class="togglebutton">
-				<A href="javascript:;" class="toggle" id="box7_content_toggle"><IMG src="./images/arrow_down_2.png"></A></P>
-				<H2>Project Submission</H2>
-			</div>
-			<div class="content" id="box7_content" >
-				<form action="./includes/upload.php" method="post" enctype="multipart/form-data">
-					<label for="file">Filename:</label>
-					<input type="file" name="file" id="file" /> 
-					<br />
-					<input type="submit" name="submit" value="Submit" />
-				</form>
-			</div>
-		</div>
-         
-<?php
-	}
-	elseif ( $_SESSION['loginok'] == "ok" && $_SESSION['level'] == '2')
-	{
-?>
-		<div class="container" id="box7">
-			<div class="title clickable visualIEFloatFix" id="box7_title" >
-				<P class="togglebutton">
-				<A href="javascript:;" class="toggle" id="box7_content_toggle"><IMG src="./images/arrow_down_2.png"></A></P>
-				<H2>Usage Statistics</H2>
-			</div>
 
-
-			<div class="content" id="box7_content" >
-				Site Statistics here.
-			</div>
-		</div>
-
-<?php
-}
-?>
 	</div>
 <div class="spacer"></div>
-<?php include("./includes/footer.php"); ?>
-</div>
 
-</body></html>							
+<?php include('./includes/footer.php'); ?>
+
+</div>
+</body></html>

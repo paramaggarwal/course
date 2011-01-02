@@ -1,58 +1,60 @@
 <?php
 
 session_start();
-
 include("./includes/config.php");
 
-$name = $_SESSION['name'];
+$user = $_SESSION['username'];
 
-$result = mysql_query("Select * From stu_rec where name='$name'",$con);
+$result = mysql_query("Select * From bb_users where user_login='$user'",$con);
 
-$msg = "";
+$msg="";
 
 if(mysql_num_rows($result)>0)
 {
 	$row = mysql_fetch_array($result, MYSQL_BOTH);
 }
 
-$type = "";
-
 if(isset($_POST['submit']))
 {
-	//echo "HELLLOOOOO";
-	/*if($row["name"] != $_POST['name']) {
+	
+	if($row["display_name"] != $_POST['name']) {
 		$newname = $_POST['name'];
-		$result = mysql_query("UPDATE `stu_rec` SET `name` = '$newname' WHERE `name` = '$name' LIMIT 1 ;");
-		$result = mysql_query("UPDATE `bb_users` SET `display_name` = '$newvalue' WHERE `display_name` = '$name' LIMIT 1 ;");
+		$result = mysql_query("UPDATE `bb_users` SET `display_name` = '$newname' WHERE `user_login` = '$user' LIMIT 1 ;");
 		$_SESSION['name'] = $newname;
-		$name = $_SESSION['name'];
-	}*/
+	}
 	if($row["blood_gr"] != $_POST['blood_gr']) {
 		$newval = $_POST['blood_gr'];
-		$result = mysql_query("UPDATE `stu_rec` SET `blood_gr` = '$newval' WHERE `name` = '$name' LIMIT 1 ;");
+		$result = mysql_query("UPDATE `bb_users` SET `blood_gr` = '$newval' WHERE `user_login` = '$user'  LIMIT 1 ;");
 	}
 	if($row["dob"] != $_POST['dob']) {
 		$newval = $_POST['dob'];
-		$result = mysql_query("UPDATE `stu_rec` SET `dob` = '$newval' WHERE `name` = '$name' LIMIT 1 ;");
+		$result = mysql_query("UPDATE `bb_users` SET `dob` = '$newval' WHERE `user_login` = '$user' LIMIT 1 ;");
 	}
 	if($row["address"] != $_POST['address']) {
 		$newval = $_POST['address'];
-		$result = mysql_query("UPDATE `stu_rec` SET `address` = '$newval' WHERE `name` = '$name' LIMIT 1 ;");
+		$result = mysql_query("UPDATE `bb_users` SET `address` = '$newval' WHERE `user_login` = '$user'  LIMIT 1 ;");
 	}
 	if($row["father_name"] != $_POST['father_name']) {
 		$newval = $_POST['father_name'];
-		$result = mysql_query("UPDATE `stu_rec` SET `father_name` = '$newval' WHERE `name` = '$name' LIMIT 1 ;");
+		$result = mysql_query("UPDATE `bb_users` SET `father_name` = '$newval' WHERE `user_login` = '$user'  LIMIT 1 ;");
 	}
-	if($row["phone_no"] != $_POST['phone_no']) {
+	if($row["phone"] != $_POST['phone_no']) {
 		$newval = $_POST['phone_no'];
-		$result = mysql_query("UPDATE `stu_rec` SET `phone_no` = '$newval' WHERE `name` = '$name' LIMIT 1 ;");
+		$result = mysql_query("UPDATE `bb_users` SET `phone` = '$newval' WHERE `user_login` = '$user'  LIMIT 1 ;");
 	}
-	if($row["alt_email"] != $_POST['alt_email']) {
+	if($row["user_email"] != $_POST['alt_email']) {
 		$newval = $_POST['alt_email'];
-		$result = mysql_query("UPDATE `stu_rec` SET `alt_email` = '$newval' WHERE `name` = '$name' LIMIT 1 ;");
+		$result = mysql_query("UPDATE `bb_users` SET `user_email` = '$newval' WHERE `user_login` = '$user'  LIMIT 1 ;");
 	}
-	$msg = "Your Changes have been saved successfully!!";
-        header("Location: http://iiitcslcentral.co.cc/");
+	
+	
+	$result = mysql_query("Select * From bb_users where user_login='$user'",$con);
+	if(mysql_num_rows($result)>0)
+	{
+		$row = mysql_fetch_array($result, MYSQL_BOTH);
+	}
+	$msg = "The entries have been changed successfully. <a href='http://iiitcslcentral.co.cc/'>Click here </a>to go back to the home page.";
+	//header("Location: http://iiitcslcentral.co.cc/");
 }
 ?>
 
@@ -82,7 +84,7 @@ if(isset($_POST['submit']))
 		}
 
 		$(document).ready(function(){
-			Nifty("div#box1,div#footer,div#navbar" , "transparent");
+			Nifty("div.container,div.menu" , "transparent");
 
 			$("#box1_title").click(function () { $("#box1_content").slideToggle("normal"); toggleArrow(1);});
 		});
@@ -96,32 +98,8 @@ if(isset($_POST['submit']))
 
 <body>
 
-<div id="header-content"> 
-	<h1>Communication Skills Lab - IIIT, Allahabad</h1> 
-</div>
- 
-<div id="header-image" style="width: 7%; height: 85%;" >
-	<img src="http://www.iiitcslcentral.co.cc/images/header.png" style="height:100%; width:100%;" >
-</div>
- 
- 
-<div id="main">
- 
-<div id="navbar">
-	<TABLE class="navbar">
-	<TBODY>
-	<TR>
- 
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/'; ">Home</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/chit-chat/'; ">Chit-Chat</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/results.php'; ">Results</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/contact.php'; ">Contact</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/about.php'; ">About</TD>
- 
-	</TR>
-	</TBODY>
-	</TABLE>
-</div>
+<?php include('./includes/header.php'); ?>
+
 
 	<div class="column" style="width:900px">
 
@@ -139,7 +117,7 @@ if(isset($_POST['submit']))
 
 			<div class="content" id="box1_content" >
 
-            <p class="error" align="center"><?php echo $msg;?></p>			
+            <p class="error" align="center"><?php echo $msg; ?></p>
 <form method="post" action="./editprofile.php">
 				<table width="473" align="center" class="tablecontents">
 
@@ -153,7 +131,7 @@ if(isset($_POST['submit']))
 
        
 
-	   <td width="272"><input type="text" name="name" id="name" value="<?php echo $name; ?>" /></td>
+	   <td width="272"><input type="text" name="name" id="name" value="<?php echo $row["display_name"]; ?>" /></td>
 
     </tr>
 
@@ -225,7 +203,7 @@ if(isset($_POST['submit']))
 
       	<td>
 
-			<input id="phone_no" type="text" name="phone_no" value="<?php echo $row['phone_no']; ?>" />
+			<input id="phone_no" type="text" name="phone_no" value="<?php echo $row['phone']; ?>" />
 
         </td>
 
@@ -237,11 +215,11 @@ if(isset($_POST['submit']))
 
     	<td height="30" bgcolor="#E0E0E0" class="tablecontents">
 
-	  <div align="right" class="tablecontents">Alternate Email:</div></td>
+	  <div align="right" class="tablecontents">Email:</div></td>
 
       	<td>
 
-			<input id="alt_email" name="alt_email" type="text" value="<?php echo $row['alt_email']; ?>" /></td>
+			<input id="alt_email" name="alt_email" type="text" value="<?php echo $row['user_email']; ?>" /></td>
         
 
 	</tr>
@@ -267,9 +245,8 @@ if(isset($_POST['submit']))
 
 </div>
 
-<?php include("./includes/footer.php"); ?>
 
-
+<?php include('./includes/footer.php'); ?>
 
 </body>
 

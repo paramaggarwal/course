@@ -11,10 +11,19 @@
 	<link href="http://iiitcslcentral.co.cc/css/style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="http://iiitcslcentral.co.cc/js/scripts.js"></script>
 	<script type="text/javascript">
-		
+
+		function toggleArrow(id) {
+			if ( $("#box" + id + "_content").css("height") == '1px' ) {
+				$("#box" + id + "_content_toggle").html("<img src='http://iiitcslcentral.co.cc/images/arrow_down_2.png'>");
+			}
+			else {
+				$("#box" + id + "_content_toggle").html("<img src='http://iiitcslcentral.co.cc/images/arrow_right_2.png'>");
+			}
+		}
+
                 $(document).ready(function(){
 
-			Nifty("div#login,div#latestupdates,div#forums,div#forum,div#topic,div#footer,div#navbar,div#notices","transparent");
+			Nifty("div.container,div.menu","transparent");
 
                         $("#login_title").click(function () { $("#login_content").slideToggle("normal"); toggleArrow(1);});
                         $("#latestupdates_title").click(function () { $("#latestupdates_content").slideToggle("normal"); toggleArrow(2);});
@@ -60,13 +69,10 @@
 	<h1>Communication Skills Lab - IIIT, Allahabad</h1> 
 </div>
 
-<div id="header-image" style="width: 7%; height: 85%;" >
-	<img src="http://www.iiitcslcentral.co.cc/images/header.png" style="height:100%; width:100%;" >
-</div>
 	
 <div id="page">	
 
-<div id="navbar">
+<div id="navbar" class="menu">
 	<TABLE class="navbar">
 	<TBODY>
 	<TR>
@@ -85,7 +91,7 @@
 <div id="content" class="clearfix">
 
 <div class="container" id="login" >
-	<div class="title clickable visualIEFloatFix" id="login_title" onmousedown="animatedcollapse.toggle('login_content'); toggleDiv('login_content',2)">
+	<div class="title clickable visualIEFloatFix" id="login_title" >
 	<P class="togglebutton">
 	<A href="javascript:;" class="toggle" id="login_content_toggle">
 	<IMG src="http://www.iiitcslcentral.co.cc/images/arrow_down_2.gif"></A></P>

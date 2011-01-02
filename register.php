@@ -46,7 +46,7 @@ header("Location: http://www.iiitcslcentral.co.cc/profiles.php?rollno=" . $user_
 		}
 
 		$(document).ready(function(){
-			Nifty("div#box1,div#footer,div#navbar");
+			Nifty("div#.container,div.menu","transparent");
 
 			$("#box1_title").click(function () { $("#box1_content").slideToggle("normal"); toggleArrow(1);});
 		});
@@ -56,32 +56,9 @@ header("Location: http://www.iiitcslcentral.co.cc/profiles.php?rollno=" . $user_
 
 <body>
 
-<div id="header-content"> 
-	<h1>Communication Skills Lab - IIIT, Allahabad</h1> 
-</div>
- 
-<div id="header-image" style="width: 7%; height: 85%;" >
-	<img src="http://www.iiitcslcentral.co.cc/images/header.png" style="height:100%; width:100%;" >
-</div>
- 
- 
-<div id="main">
- 
-<div id="navbar">
-	<TABLE class="navbar">
-	<TBODY>
-	<TR>
- 
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/'; ">Home</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/chit-chat/'; ">Chit-Chat</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/results.php'; ">Results</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/contact.php'; ">Contact</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/about.php'; ">About</TD>
- 
-	</TR>
-	</TBODY>
-	</TABLE>
-</div>
+
+<?php include('./includes/header.php'); ?>
+
 <?php
 if($_SESSION['loginok'] == "ok" && $_SESSION['level'] == "4")
 {
@@ -124,6 +101,7 @@ else
 
 </div>
 
-<?php include("./includes/footer.php"); ?>
+
+<?php include('./includes/footer.php'); ?>
 
 </body></html>

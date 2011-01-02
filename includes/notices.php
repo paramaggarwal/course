@@ -17,23 +17,12 @@ $maximum = $row['max_val'];
 
 
 
-//Loop for last 10 notices
+//Loop for notices
 
-for ($i = $maximum - 10; $i <= $maximum; $i++)
+for ($i = $maximum; $i >= 1; $i--)
 
 {
-
-  if ( $i <= 0 )
-
-  {
-
-      continue;
-
-  }
-
-  else
-
-  {
+  
 
   //Get the notice text 
 
@@ -43,7 +32,8 @@ for ($i = $maximum - 10; $i <= $maximum; $i++)
 
   $notice = $row['notice_text'];
 
-  if ( $notice == "" ) continue;  
+  if ( $notice == "" ) continue; 
+ 
 
   $timestamp = $row['timestamp'];
 
@@ -57,10 +47,9 @@ for ($i = $maximum - 10; $i <= $maximum; $i++)
   echo "</li>";
   echo "</ul>"; 
 
-  }
 
 }
 
 
 
-?>							
+?>

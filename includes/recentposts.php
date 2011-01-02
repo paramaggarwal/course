@@ -9,20 +9,23 @@ $row = mysql_fetch_array($max_val, MYSQL_BOTH);
 $maximum = $row['max_val'];
 
 //Loop for last 6 posts
-for ($i = $maximum - 5; $i <= $maximum; $i++)
+$count=0;
+for ($i = $maximum; $i >= 1; $i--)
 {
-  if ( $i <= 0 )
-  {
-      continue;
-  }
-  else
-  {
 
   //Get the post text and poster ID and topic ID
   $result = mysql_query("Select * From bb_posts where post_id='$i'",$con); 
   $row = mysql_fetch_array($result, MYSQL_BOTH);
 
   $post = $row['post_text'];
+  if($post == "") continue;
+  if($row['post_status'] == 1) {
+    continue;
+  }
+  $count++;
+  if($count>5) {
+    break;
+  }
   $posterid = $row['poster_id'];
   $topicid = $row['topic_id'];
 
@@ -61,7 +64,7 @@ for ($i = $maximum - 5; $i <= $maximum; $i++)
   $out = $topic_out . " got a reply from " . $user_out . $when . $post_out;
 
   echo $out;
-  }
+  
 }
 
 ?>									

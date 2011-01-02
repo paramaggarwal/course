@@ -18,7 +18,7 @@
 		}
 
 		$(document).ready(function(){
-			Nifty("div#box1,div#box2,div#box3,div#box4,div#box5,div#footer,div#navbar", "transparent");
+			Nifty("div.container,div.menu", "transparent");
 
 			$("#box1_title").click(function () { $("#box1_content").slideToggle("normal"); toggleArrow(1);});
 			$("#box2_title").click(function () { $("#box2_content").slideToggle("normal"); toggleArrow(2);});
@@ -27,37 +27,12 @@
 			$("#box5_title").click(function () { $("#box5_content").slideToggle("normal"); toggleArrow(5);});
 		});
 	</script>
-	
 
 </head>
 
 <body>
 
-<div id="header-content"> 
-	<h1>Communication Skills Lab - IIIT, Allahabad</h1> 
-</div>
- 
-<div id="header-image" style="width: 7%; height: 85%;" >
-	<img src="http://www.iiitcslcentral.co.cc/images/header.png" style="height:100%; width:100%;" >
-</div>
-
-<div id="main">
-
-<div id="navbar">
-	<TABLE class="navbar">
-	<TBODY>
-	<TR>
- 
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/'; ">Home</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/chit-chat/'; ">Chit-Chat</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/results.php'; ">Results</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/contact.php'; ">Contact</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/about.php'; ">About</TD>
- 
-	</TR>
-	</TBODY>
-	</TABLE>
-</div>
+<?php include('./includes/header.php'); ?>
 
 	<div class="column">
 
@@ -76,8 +51,16 @@
 			<div class="content" id="box1_content" >
 
 			<p>Group discussion is an activity in which a group of around 10 people are given a topic to provide views. Point are then given to the participants depending on their views and how they get themself highlighted. There are marked for their collaboration and flow of information as a group.</p><br />
-		<p>This practice is very helpful during placements and gives a better impression to the employer.</p>
-
+			<p>This practice is very helpful during placements and gives a better impression to the employer.</p>
+			<p>During Group discussion the following things should be taken care:</br>
+			<ul>
+			<li>Stay sticked to the topic</li>
+			<li>Do not loose the objectivity</li>
+			<li>Assessment is not only on your communication skills but also on your ability to be a team player.</li> 
+			<li>Evaluation is based on quality, and not on quantity. Your contribution must be relevant.</li>
+			<li>The mantra is "Contributing meaningfully to the team's success." Domination is frowned upon.</li>
+			<li>Do not show of your knowledge or say anything you are not sure.</li>
+			
 			</div>     
 
 		</div>
@@ -98,8 +81,20 @@
 
 			<div class="content" id="box2_content" >
 			
-			<p>JAM Sessions (Just A Minute Sessions) is an activity in which a person has to show his or her individual caliber in instantaneous thinking and presentation. In this kind of session a person is individually given a topic on the spot and then given  30 seconds to frame what is to be said. Because just one miunute is given for representation of thought so points are given on opening and closing of speech, fluency, framing of the points, and the total information provided.</p><br />
-		<p>This practice is useful as it help in making a person capable of giving instant and presise answers. This helps in having a good first impression. Since "First impression is the last impression" so this comes in very handy.</p>
+			<p>JAM Sessions (Just A Minute Sessions) is an activity in which a person has to show his or her individual caliber in instantaneous thinking and presentation. In this kind of session a person is individually given a topic on the spot and then given  30 seconds to frame what is to be said.
+			 Because just one miunute is given for representation of thought so points are given on opening and closing of speech, fluency, framing of the points, and the total information provided.</p><br />
+			<p>
+			<ul>
+			<li>Opening and closing of speech.</li>
+			<li>Framinig of points.</li>
+			<li>Quality of information.</li>	
+			<li>Fluency.</li>
+			<li>Validity of information</li>
+			<li>Focus on the topic</li>
+			<li>Time management.</li>
+			</ul>
+			</p>
+			<p>This practice is useful as it help in making a person capable of giving instant and presise answers. This helps in having a good first impression. Since "First impression is the last impression" so this comes in very handy.</p>
 		
 
 
@@ -131,17 +126,17 @@
 <p>
 In a debate the following rules are to followed
 <ul>
-<li>1.) There should be two teams. Each team consists of two or three speakers.</li>
-<li>2.) The speeches and speaking time are divided equally between the two teams.</li>
-<li>3.) The topic should not be partial to one side.</li>
-<li>4.) Judgement should be done on the basis of
+<li> There should be two teams. Each team consists of two or three speakers.</li>
+<li> The speeches and speaking time are divided equally between the two teams.</li>
+<li> The topic should not be partial to one side.</li>
+<li> Judgement should be done on the basis of
 <ul>
-	<li>(i)	Time management.</li>
-	<li>(ii)	Content.</li>
-	<li>(iii)	Layout.</li>
-	<li>(iv)	Presentation.</li>
-	<li>(v)	Clarity of thoughts.</li>
-	<li>(vi)	validity of points presented.</li></ul>
+	<li>	Time management.</li>
+	<li>	Content.</li>
+	<li>	Layout.</li>
+	<li>	Presentation.</li>
+	<li>	Clarity of thoughts.</li>
+	<li>	validity of points presented.</li></ul>
 </li></ul></p><br />
 
 <p>Debate is a uniquely beneficial educational tool in part because of the value of argumentation theory itself. The creation of an argument is one of the most complex cognitive acts that a person can engage in. Creating an argument requires the research of issues, organization of data, analysis of data, synthesis of different kinds of data, and an evaluation of information with respect to which conclusion it may point.</p><br />
@@ -174,9 +169,25 @@ In a debate the following rules are to followed
 
 			<div class="content" id="box4_content" >
 
-			wewertrytewqgtyoit
-
-
+<p>Presentation is an activity in which a person or two have to present a topic using ppt or any other presentation aid. A presentations should be given in such a way that the audience should be able to understand it without any early knowledge. Usually in a presentation the following thing are expexted.
+<ul>
+<li>Appropriate visual aids</li> 
+<li>Evidence of your having practised the talk/delivery </li>
+<li>Appropriate timing/length </li>
+<li>A clear story or argument in the text</li> 
+<li>Appropriate breadth and depth </li>
+<li>Understanding of the topic and the audience</li> 
+<li>A clear structure: a distinct beginning, middle and end.</li> 
+</ul>
+</p>
+<p>While making or presenting the following points should be taken care of
+<ul>
+<li>Purpose of your presentation.</li> 
+<li>Audience for your presentation.</li> 
+<li>Location of your presentation.</li> 
+</ul>
+The ability to make clear, interesting and relevant presentations is increasingly important in today's world, both in an academic and a professional context.
+</p>
 
 			</div>
 
@@ -196,7 +207,21 @@ In a debate the following rules are to followed
 
 			<div class="content" id="box5_content" >
 
- 			wervwerwergwergwer
+ 	<p>"Writing Skill" is an activity in which Formal Writing is practised.
+For Formal Writing Skills the following things are to be taken care of</p>
+<p>In general, it is inappropriate simply to write as you would speak.
+<ul>
+<li><h3>Formal Writing is not just any conversation</h3></li>
+<p> In conversation, the listener can ask for clarification or elaboration easily, and thus the speaker can use imprecise language, ramble from topic to topic freely, and so on. Formal writing must instead stand on its own, conveying the author's thesis clearly through words alone. As a result, formal writing requires substantial effort to construct meaningful sentences, paragraphs, and arguments relevant to a well-defined thesis. The best formal writing will be difficult to write but very easy to read; the author's time and effort spent on writing will be repaid with the time and effort saved by the readers. 
+</p>
+<li><h3>Making thesis obvious throughout</h3></li>
+<p>An essay, article, or report should have one main topic (the "thesis") that is clearly evident in the introduction and conclusion. Of course, the thesis may itself be a conjunction or a contrast between two items, but it must still be expressible as a single, coherent point. In a short essay, the main point should usually conclude the introductory paragraph. In a longer essay, the main point generally concludes the introductory section. The reader should never be in any doubt about what your thesis is; whenever you think it might not be absolutely obvious, remind the reader again. 
+</p>
+</ul>
+<p>
+
+
+
 
 
 
@@ -209,9 +234,7 @@ In a debate the following rules are to followed
 <div class="spacer"></div>
 
 </div>
-
-<?php include("./includes/footer.php"); ?>
-
+<?php include('./includes/footer.php'); ?>
 
 
 </body></html>

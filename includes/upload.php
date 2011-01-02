@@ -1,83 +1,125 @@
 <?php
 
+
 session_start();
+$msg = "";
 
-//Get Session Data
-$name = $_SESSION['name'];
-$rollno = $_SESSION['rollno'];
+if( $_SESSION['level'] == 1 ) {
+	$msg = "The File has been successfully uploaded. These are the details:
+	";
+	$msg .= "Upload: " . $_FILES["file"]["name"] . "<br />";
+	$msg .= "Type: " . $_FILES["file"]["type"] . "<br />";
+	$msg .=  "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
+	$msg .= "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
 
-//Set email preferences
-$from = "IIIT CSL Central <admin@iiitcslcentral.co.cc>" ;
-$subject = "File uploaded by " . $name . " - " . $rollno;
-$headers = 'From: ' . $from . "\r\n";
-$message = "File Uploaded is attached.\n\n" ;
-$to = "paramaggarwal@gmail.com";
-
-
-///////////////FILE UPLOADED///////////////////////////
-if( $_SESSION['level'] == 1 )
-{
-	echo "Upload: " . $_FILES["file"]["name"] . "<br />";
-	echo "Type: " . $_FILES["file"]["type"] . "<br />";
-	echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
-	echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
-
-		if (file_exists("upload/" . $_FILES["file"]["name"]))
-		{
-			echo $_FILES["file"]["name"] . " already exists. ";
-		}
-		else {
-			move_uploaded_file($_FILES["file"]["tmp_name"],
-			"./upload/" . $_FILES["file"]["name"]);
-			echo "Stored in: " . "./upload/" . $_FILES["file"]["name"];
-		}
+	if (file_exists("upload/" . $_FILES["file"]["name"])) {
+		$msg .= $_FILES["file"]["name"] . " already exists. ";
+	}
+	else {
+		move_uploaded_file($_FILES["file"]["tmp_name"],
+		"./upload/" . $_FILES["file"]["name"]);
+		$msg .= "Stored in: " . "./upload/" . $_FILES["file"]["name"];
+	}
 }
 else {
-	echo "Sorry! Upload Not Allowed!!";
+	$msg .= "Sorry! Upload Not Allowed!!";
 }
 
-/////////////////READ FILE//////////////////////////////
-$fileatt = "./upload/" . $_FILES["file"]["name"];
-$fileatttype = $_FILES["file"]["type"]; 
-$fileattname = $_FILES["file"]["name"];
-
-$file = fopen( $fileatt, 'rb' ); 
-$data = fread( $file, filesize( $fileatt ) ); 
-fclose( $file );
-
-$semi_rand = md5( time() ); 
-$mime_boundary = "==Multipart_Boundary_x{$semi_rand}x"; 
-
-$headers .= "\nMIME-Version: 1.0\n" . 
-	    "Content-Type: multipart/mixed;\n" . 
-	    " boundary=\"{$mime_boundary}\"";
-
-$message = "This is a multi-part message in MIME format.\n\n" . 
-	"--{$mime_boundary}\n" . 
-	"Content-Type: text/plain; charset=\"iso-8859-1\"\n" . 
-	"Content-Transfer-Encoding: 7bit\n\n" . 
-	$message . "\n\n";
-
-$data = chunk_split( base64_encode( $data ) );
-	 
-$message .= "--{$mime_boundary}\n" . 
-	 "Content-Type: {$fileatttype};\n" . 
-	 " name=\"{$fileattname}\"\n" . 
-	 "Content-Disposition: attachment;\n" . 
-	 " filename=\"{$fileattname}\"\n" . 
-	 "Content-Transfer-Encoding: base64\n\n" . 
-	 $data . "\n\n" . 
-	 "--{$mime_boundary}--\n"; 
+?>
 
 
-//Send mail
-if( $_SESSION['level'] == 1 )
-{
-	mail( $to, $subject, $message, $headers );
-	echo "<br />Mail sent successfully...";
-}
-else {
-	echo "Sorry! Not Allowed!!";
-}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-?>	
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+
+<head>
+
+	<title>File Upload :: Communication Skills Lab - IIIT, Allahabad</title>
+	<link href="../css/style.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="../js/scripts.js"></script>
+	<script type="text/javascript">
+		function toggleArrow(id) {
+			if ( $("#box" + id + "_content").css("height") == '1px' ) {
+				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_down_2.png'>");
+			}
+			else {
+				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_right_2.png'>");
+			}
+		}
+
+		$(document).ready(function(){
+			Nifty("div#box1,div#box2,div#box3,div#box4,div#box5,div#footer,div#navbar", "transparent");
+
+			$("#box1_title").click(function () { $("#box1_content").slideToggle("normal"); toggleArrow(1);});
+		});
+	</script>
+
+</head>
+
+
+
+<body>
+
+
+
+<div id="header-content"> 
+	<h1>Communication Skills Lab - IIIT, Allahabad</h1> 
+</div>
+ 
+<div id="header-image" style="width: 7%; height: 85%;" >
+	<img src="http://www.iiitcslcentral.co.cc/images/header.png" style="height:100%; width:100%;" >
+</div>
+ 
+ 
+<div id="main">
+ 
+<div id="navbar">
+	<TABLE class="navbar">
+	<TBODY>
+	<TR>
+ 
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/'; ">Home</TD>
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/chit-chat/'; ">Chit-Chat</TD>
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/results.php'; ">Results</TD>
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/contact.php'; ">Contact</TD>
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/about.php'; ">About</TD>
+ 
+	</TR>
+	</TBODY>
+	</TABLE>
+</div>
+	<div class="column">
+
+		<div class="container" id="box1">
+
+			<div class="title clickable visualIEFloatFix" id="box1_title" >
+
+				<P class="togglebutton">
+
+				<A href="javascript:;" class="toggle" id="box1_content_toggle"><IMG src="../images/arrow_down_2.png"></A></P>
+
+				<H2>Project Upload</H2>
+
+			</div>
+
+			<div class="content" id="box1_content" >
+
+			<p><?php echo $msg; ?></p>
+			
+			</div>
+
+		</div>
+
+	</div>
+
+<div class="spacer"></div>
+
+</div>
+
+<?php include("./footer.php"); ?>
+
+
+
+</body></html>
