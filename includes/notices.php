@@ -1,12 +1,6 @@
 <?php
 
 
-
-// Param trying out making a recent posts script for bbPress... Wish me Luck...
-// Awesome work Param, well done!! - Pranjal
-
-
-
 session_start();
 
 include("config.php");
@@ -48,10 +42,19 @@ for ($i = $maximum - 10; $i <= $maximum; $i++)
   $row = mysql_fetch_array($result, MYSQL_BOTH);
 
   $notice = $row['notice_text'];
+
+  if ( $notice == "" ) continue;  
+
   $timestamp = $row['timestamp'];
 
   echo "<ul>";//19800 is for IST +5:30
-  echo "<li>" . $notice . " <small> posted on " . date("D jS M g:ia", strtotime($timestamp)+ 19800 ) . "</small></li>";
+  echo "<li>" . $notice . " <small> posted on " . date("D jS M g:ia", strtotime($timestamp)+ 19800 ) . "</small>";
+
+  if ( $_SESSION["level"] == 2 )
+   {
+   echo " - <a href='http://iiitcslcentral.co.cc/includes/deletenotice.php?ID=" . $i . "' ><small>Delete</small></a>";
+   }
+  echo "</li>";
   echo "</ul>"; 
 
   }
@@ -60,4 +63,4 @@ for ($i = $maximum - 10; $i <= $maximum; $i++)
 
 
 
-?>					
+?>							

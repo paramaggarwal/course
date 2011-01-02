@@ -47,10 +47,18 @@ for ($i = $maximum - 10; $i <= $maximum; $i++)
   $row = mysql_fetch_array($result, MYSQL_BOTH);
 
   $activity = $row['activity_text'];
-
+  
+  if ( $activity == "" ) continue;
 
   echo "<ul  type='disc'>";
-  echo "<li>" . $activity . "</li>";
+  echo "<li>" . $activity ;
+
+   if ( $_SESSION["level"] == 2 )
+   {
+   echo " - <a href='http://iiitcslcentral.co.cc/includes/deleteactivity.php?ID=" . $i . "' ><small>Delete</small></a>";
+   }
+
+  echo "</li>";
   echo "</ul>"; 
 
   }
