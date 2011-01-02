@@ -9,7 +9,7 @@ body {
   	color: #77776e;
 }
 
-#Incorrect a, #Incorrect {
+.error a, .error {
 color: red;
 font-size: 9px;
 }
@@ -289,9 +289,9 @@ ul.sparktree li a:hover {
   text-decoration: none;
 }
 
-#login a { color: #77776E; }
+#login a { color: #f03528; }
 #login a:hover { 
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 #updates ul.sparktree li.open ul li a:hover {

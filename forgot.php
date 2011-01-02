@@ -13,8 +13,8 @@ if (isset($_POST['Submit']))
 	if(mysql_num_rows($result)>0)
 	{
 		$row = mysql_fetch_array($result, MYSQL_BOTH);
-		if($useremail == $row["alt_email"]) // CHECK TO SEE IF USER EMAIL IS REGISTERED
-		{										// IF NOT, MESSAGE WILL TELL USER NOT REGISTERED
+		if($useremail == $row["alt_email"]) 	// CHECK TO SEE IF USER EMAIL IS REGISTERED
+		{				// IF NOT, MESSAGE WILL TELL USER NOT REGISTERED
 			if($user == $row["roll_no"])
 			{
 			$msg = "Your password has been sent to your email address";		
@@ -83,13 +83,11 @@ mysql_close ($con);
 	<script type="text/javascript" src="./js/niftycube.js"></script>
 	<script type="text/javascript" src="./js/jquery-1.2.2.pack.js"></script>
 	<script type="text/javascript" src="./js/animatedcollapse.js"></script>
-	<script type="text/javascript" src="./js/capslock.js"></script>
 	<script type="text/javascript">
 		window.onload=function(){
-			Nifty("div#updates,div#about,div#profiles,div#banner,div#login,div#activities,div#feedback,div#footer");
+			Nifty("div#forgot,div#footer");
 		}
-		animatedcollapse.addDiv('updates_content', 'fade=1')
-		animatedcollapse.addDiv('feedback_content', 'fade=1')
+		animatedcollapse.addDiv('forgot_content', 'fade=1')
 		animatedcollapse.init()
 	</script>
 	
@@ -98,39 +96,46 @@ mysql_close ($con);
 <body>
 <?php include("./includes/header.php"); ?>
 <div id="main">
-	<div class="column" style="width:887px" align="center">
-		<div class="container" id="updates" >
-			<div class="title clickable visualIEFloatFix" id="updates_title" onmousedown="animatedcollapse.toggle('updates_content'); toggleDiv('updates_content',2)">
+	<div class="column" style="width:900px">
+		<div class="container" id="forgot" >
+			<div class="title clickable visualIEFloatFix" id="forgot_title" onmousedown="animatedcollapse.toggle('forgot_content'); toggleDiv('forgot_content',2)">
 				<P class="togglebutton">
-				<A href="javascript:;" class="toggle" id="updates_content_toggle"><IMG src="./images/arrow_down_2.gif"></A></P>
+				<A href="javascript:;" class="toggle" id="forgot_content_toggle"><IMG src="./images/arrow_down_2.gif"></A></P>
 				<H2>Forgot Password</H2>
 			</div>
-			<div class="content" id="updates_content" >
-			  <form name="form1" method="post" action="">
-    <p align="center" class="text_matter style8"><font face="Verdana, Arial, Helvetica, sans-serif">Please 
-      enter your registered alternate email address </font></p>
-    <p align="center"><?php echo "<font color='red'>$msg</font>" ?></p>
-    <table width="370" align="center">
-      <tr>
-        <td width="70" align="right" bgcolor="#E0E0E0" class="tablecontents" >Username: </td>
-        <td width="288" align="left"><input type="text" name="username" id="username">
-        </td>
-      </tr>
-      <tr>
-        <td align="right" bgcolor="#E0E0E0" class="tablecontents">E-mail: </td>
-        <td align="left"><input name="useremail" type="text" id="useremail" width="200">
-        </td>
-      </tr>
-    </table>
-    <table width="370" align="center">
-      <tr>
-        <td width="370" align="center"><input name="Submit" type="submit" value="Request Password">        </td>
-      </tr>
-    </table>
-    <p align="center" class="smallErrorText"><a href="index.php">Login Here </a></p>
-  </form>
-  <p align="center">Clicking here will reset the password of your account, and send the new password to the provided e-mail ID.</p>
-  <p align="center">If this does not help, please contact the admin - <a>pranjaltech@gmail.com</a>
+			<div class="content" id="forgot_content" >
+
+
+			<table style="width:90%;">
+			<tr>
+				<td style="width:50%;">
+				Just incase that girl (you just saw pass-by) reminded you your password, <a href="index.php">try again here</a>.<br />
+				This will reset your password  and send you a new password on the above e-mail.<br />
+				Even forgot your email ID? Contact admin at <a>pranjaltech@gmail.com</a>
+				</td>
+				<td style="width:50%;">
+				<form name="form1" method="post" action="">
+				<p>Please enter your registered email address</p>
+				<div class="error"><?php echo $msg ?></div>
+				<table align="center">
+				<tr>
+					<td align="right" bgcolor="#E0E0E0">Username: </td>
+					<td align="left"><input type="text" name="username" id="username"></td>
+				</tr>
+				<tr>
+					<td align="right" bgcolor="#E0E0E0">E-mail: </td>
+					<td align="left"><input name="useremail" type="text" id="useremail" width="200"></td>
+				</tr>
+				<tr>
+					<td align="right"><input name="Submit" type="submit" value="Request Password"></td>
+				</tr>
+				</form>
+				</td>
+				</tr>
+				</table>
+			</table>
+			
+				
 			</div>     
 		</div>
       </div>

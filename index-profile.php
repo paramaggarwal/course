@@ -83,6 +83,37 @@
 			}	
 		}
 	</script>
+    
+    <script type="text/javascript" >
+		var urlp = "./includes/profilesearch.php";
+		var whatp = "ProfileStatus(req.responseText)";
+
+		function LookupStudent()
+		{	
+			var rollno = document.getElementById("rollno").value;
+				
+			if(rollno == '') {
+				document.getElementById('SearchMessage').innerHTML = "";
+			} else {
+				DoCallback_profile("rollno="+rollno);
+			}
+		}
+
+		function ProfileStatus(Status_p)
+		{
+			var roll = document.getElementById("rollno").value;
+			if(Status_p == 0) {
+				document.getElementById('SearchMessage').innerHTML = "Sorry! There is no one with that Roll no. on our records!!";
+			}
+			else if(Status_p == roll){
+				document.getElementById('SearchMessage').innerHTML = "";
+				window.location = "profiles.php?rollno="+roll;
+			}
+			else {
+				document.getElementById('SearchMessage').innerHTML = "";
+			}	
+		}
+	</script>
 
 	<script type="text/javascript" src="./js/ajax.js"></script>
 	
@@ -140,7 +171,10 @@
 				<H2 class="profiles">Student Profiles</H2>
 			</div>
 			<div class="content" id="profiles_content" >
-				<p>This ones difficult and complicated. Please think about this...</p>
+            	<p align="left">Please enter the roll no. of the student:-</p>
+				<P class="center"><INPUT type="text" name="rollno" id="rollno" style="width:80%;"></P>
+                        					<p class="center"><div id="SearchMessage"></div></p>
+						<P style="align:right"><INPUT type="button" value="Search" onclick="LookupStudent()"></P>
 			</div>
 		</div>
 	</div>

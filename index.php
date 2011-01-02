@@ -82,6 +82,34 @@
 			}	
 		}
 	</script>
+    
+    	<script type="text/javascript" >
+		var urlp = "./includes/profilesearch.php";
+		var whatp = "ProfileStatus(req.responseText)";
+
+		function LookupStudent()
+		{	
+			var rollno = document.getElementById("rollno").value;
+				
+			if(rollno == '') {
+				document.getElementById('SearchMessage').innerHTML = "";
+			} else {
+				DoCallback_profile("rollno="+rollno);
+			}
+		}
+
+		function ProfileStatus(Status_p)
+		{
+			//var roll = document.getElementById("rollno").value;
+			if(Status_p == 0) {
+				document.getElementById('SearchMessage').innerHTML = "Oops. There is no one with that Roll No. on our records.";
+			}
+			else{
+				document.getElementById('SearchMessage').innerHTML = "";
+				window.location = "profiles.php?rollno="+Status_p;
+			}
+		}
+	</script>
 
 	<script type="text/javascript" src="./js/ajax.js"></script>
 	
@@ -127,7 +155,7 @@
 			<div class="body">
 				<div style="text-align: left;">
 					<p style="display: block;">
-            						This needs to iinclude a php file that will make lists out of statements given from the administrative panel...
+            						This needs to include a php file that will make lists, out of statements given from the administrative panel...
 					</p>
 				</div>
           			</div>
@@ -139,7 +167,10 @@
 				<H2 class="profiles">Student Profiles</H2>
 			</div>
 			<div class="content" id="profiles_content" >
-				<p>This ones difficult and complicated. Please think about this...</p>
+				<p align="left">Try entering a Roll No. or a Name:</p>
+				<div align="left"><input type="text" name="rollno" id="rollno" style="width:60%;" onkeypress="checkEnterforSearch(event)">
+				<input type="button" style="padding: 1px 12px 1px 12px;" value="Search" onclick="LookupStudent()"></div>
+                        			<div align="left"><div id="SearchMessage" class="error"></div></div>
 			</div>
 		</div>
 	</div>
@@ -152,17 +183,17 @@
 				<H2>Login</H2>
 			</div>
 			<div class="content" id="login_content" >
-				<table style="width:100%;" align="center">
+				<table style="width:100%; text-align: center;" >
 				<tr>
 					<td align="right" bgcolor="#E0E0E0" class="tablecontents" >Username:</td>
 					<td align="left"><input type="text" name="username" id="username" size=15></td>
 				</tr>
 				<tr>
 					<td align="right" bgcolor="#E0E0E0" class="tablecontents">Password:</td>
-					<td align="left"><input type="password" name="password" size=15 id="password" onkeypress="capLock(event)" ></td>
+					<td align="left"><input type="password" name="password" size=15 id="password" onkeypress="checkCaps(event); checkEnterforLogin(event)" ></td>
 				</tr>
 				<tr align="center">
-					<td align="center" colspan="2"><div id="Incorrect"></div></td>
+					<td align="center" colspan="2"><div id="Incorrect" class="error"></div></td>
 				</tr>
 				<tr>
 					<td ></td>
@@ -192,9 +223,9 @@
 						<P><B>What&#39;s on your mind?</B></P>
 						<P class="center"><TEXTAREA name="feedback_text" id="feedback_text" rows="5" cols="40" style="width:80%;"></TEXTAREA></P>
     						<P>Please include your email address if you&#39;d like us to respond to a specific question.<BR></P>
-						<P class="center"><INPUT type="text" name="email" id="email" style="width:80%;"></P>
-                        					<p class="center"><div id="FeedbackMessage"></div></p>
-						<P style="align:right"><INPUT type="button" value="Submit" onclick="PostFeedback()"></P>
+						<P class="center"><INPUT type="text" name="email" id="email" onkeypress="checkEnterforFeedback(event)" style="width:80%;"></P>
+                        					<p class="center"><div id="FeedbackMessage" class="error"></div></p>
+						<P align="center"><input type="button" style="padding: 1px 12px 1px 12px;" value="Submit" onclick="PostFeedback()"></P>
 				</div>
 			</div>
         		</div>

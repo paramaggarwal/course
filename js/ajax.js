@@ -66,3 +66,37 @@ function processReqChange_feedback() {
         }
     }
 }
+
+function DoCallback_profile(data)
+{
+    // branch for native XMLHttpRequest object
+    if (window.XMLHttpRequest) {
+        req = new XMLHttpRequest();
+        req.onreadystatechange = processReqChange_profile;
+        req.open('POST', urlp, true);
+        req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        req.send(data);
+    // branch for IE/Windows ActiveX version
+    } else if (window.ActiveXObject) {
+        req = new ActiveXObject('Microsoft.XMLHTTP')
+        if (req) {
+            req.onreadystatechange = processReqChange_profile;
+            req.open('POST', urlp, true);
+            req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            req.send(data);
+        }
+    }
+}
+
+function processReqChange_profile() {
+    // only if req shows 'loaded'
+    if (req.readyState == 4) {
+        // only if 'OK'
+        if (req.status == 200) {
+            eval(whatp);
+        } else {
+            alert('There was a problem retrieving the XML data: ' +
+                req.responseText);
+        }
+    }
+}

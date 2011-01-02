@@ -154,10 +154,10 @@ function toggleDiv(divid,arrowid) {
 	var element = document.getElementById(divid);
 	var toggle  = document.getElementById(divid + '_toggle');
 
-	if (toggle.innerHTML == '<img src="images/arrow_right_'+arrowid+'.gif">' ) {
-		toggle.innerHTML = '<img src="images/arrow_down_'+arrowid+'.gif">';
+	if (toggle.innerHTML == '<img src="http://www.iiitcslcentral.co.cc/images/arrow_right_'+arrowid+'.gif">' ) {
+		toggle.innerHTML = '<img src="http://www.iiitcslcentral.co.cc/images/arrow_down_'+arrowid+'.gif">';
 		
 	} else {
-		toggle.innerHTML = '<img src="images/arrow_right_'+arrowid+'.gif">';
+		toggle.innerHTML = '<img src="http://www.iiitcslcentral.co.cc/images/arrow_right_'+arrowid+'.gif">';
 	}
 }
