@@ -37,8 +37,16 @@ for ($i = $maximum - 5; $i <= $maximum; $i++)
   $row3 = mysql_fetch_array($result3, MYSQL_BOTH);
   $topic = $row3['topic_title'];
 
-  echo "<b><small>'" . $topic . "'</small></b> got a reply from <i>" . $user . "</i>:<p /><p /><small style='text-indent: 3em;'>" . $post . "</small>"; 
+  $stat = "<b><a href='http://iiitcslcentral.co.cc/chit-chat/topic.php?id=";
+  $stat .= $topicid . "' ><small>'" . $topic;
+  $stat .= "'</small></a></b> got a reply from <a href='http://iiitcslcentral.co.cc/chit-chat/profile.php?id=";
+  $stat .= $poster . "' ><i>" . $user;
+  $stat .= "</i></a>:<p /><p />";
+  $stat .= "<small style='text-indent: 3em;'>";
+  $stat .= $post . "</small>";
+  
+  echo $stat;
   }
 }
 
-?>					
+?>							

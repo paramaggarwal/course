@@ -108,10 +108,10 @@ mysql_close ($con);
 
 			<table style="width:90%;">
 			<tr>
-				<td style="width:50%;">
-				Just incase that girl (you just saw pass-by) reminded you your password, <a href="index.php">try again here</a>.<br />
-				This will reset your password  and send you a new password on the above e-mail.<br />
-				Even forgot your email ID? Contact admin at <a>pranjaltech@gmail.com</a>
+				<td style="width:49%;">
+				&bull; Just incase that girl (you just saw pass-by) reminded you of your password, <a href="index.php">try again here</a>.<br /><br />
+				&bull; This will reset your password  and send you a new password on the above e-mail.<br /><br />
+				&bull; Even forgot your email ID? Contact admin at <a>pranjaltech@gmail.com</a>
 				</td>
 				<td style="width:50%;">
 				<form name="form1" method="post" action="">
@@ -133,8 +133,7 @@ mysql_close ($con);
 				</td>
 				</tr>
 				</table>
-			</table>
-			
+			</table>			
 				
 			</div>     
 		</div>
