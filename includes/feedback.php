@@ -2,11 +2,17 @@
 
 
 //----------------------------------------------------------------------------------------------------
-$email = $_REQUEST['email'] ;
-$message = $_REQUEST['feedback'] ;
+$email = $_POST['email'] ;
+$message = $_POST['feedback'] ;
+
+$messageproper = "This message was sent from: \n".
+				"$email\n". 
+				"-----------Message------------\n\n".
+				$message.
+				"\n-------------------------------\n";
 
 mail( "pranjaltech@gmail.com", "Feedback Form Results",
-$message, "From: $email" );
+$messageproper, "From: IIIT_CSLCENTRAL" );
 	echo 1;
 //header( "Location: http://www.example.com/thankyou.html" );
 //----------------------------------------------------------------------------------------------------

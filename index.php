@@ -12,6 +12,7 @@
 	<script type="text/javascript">
 		window.onload=function(){
 			Nifty("div#updates,div#about,div#profiles,div#banner,div#login,div#activities,div#feedback,div#footer");
+			Nifty("div#navbar","transparent");
 		}
 		animatedcollapse.addDiv('updates_content', 'fade=1')
 		animatedcollapse.addDiv('about_content', 'fade=1')
@@ -43,6 +44,9 @@
 			if(Status_l == 0) {
 				document.getElementById('Incorrect').innerHTML = 'Username or Password seems wrong.<br>Did you <a href="forgot.php">forget your password</a>?';
 			}
+			else if(Status_l == 1) {
+				window.location = "student.php";
+			}
 			else {
 				document.getElementById('Incorrect').innerHTML = "";
 			}
@@ -55,7 +59,7 @@
 
 		function PostFeedback()
 		{	
-			var feedback = document.getElementById("feedback").value;
+			var feedback = document.getElementById("feedback_text").value;
 			var email = document.getElementById("email").value;
 				
 			if(feedback == '' || email == '') {
@@ -68,10 +72,10 @@
 		function FeedbackStatus(Status_f)
 		{
 			if(Status_f == 0) {
-				document.getElementById('FeedbackMessage').innerHTML = 'The Feedback could not be sent!';
+				document.getElementById('FeedbackMessage').innerHTML = "Oops! We couldn't get it.";
 			}
 			else if(Status_f == 1){
-				document.getElementById('FeedbackMessage').innerHTML = "Feedback Sent Successfully!!!";
+				document.getElementById('FeedbackMessage').innerHTML = "We got it. Thanks a lot!";
 			}
 			else {
 				document.getElementById('FeedbackMessage').innerHTML = "";
@@ -186,9 +190,9 @@
 			<div class="content" id="feedback_content" >
 				<div id="feedback_form">
 						<P><B>What&#39;s on your mind?</B></P>
-						<P class="center"><TEXTAREA name="feedback" id="feedback" rows="5" cols="20" style="width:158px;"></TEXTAREA></P>
+						<P class="center"><TEXTAREA name="feedback_text" id="feedback_text" rows="5" cols="40" style="width:80%;"></TEXTAREA></P>
     						<P>Please include your email address if you&#39;d like us to respond to a specific question.<BR></P>
-						<P class="center"><INPUT type="text" name="email" id="email" style="width:158px;"></P>
+						<P class="center"><INPUT type="text" name="email" id="email" style="width:80%;"></P>
                         					<p class="center"><div id="FeedbackMessage"></div></p>
 						<P style="align:right"><INPUT type="button" value="Submit" onclick="PostFeedback()"></P>
 				</div>

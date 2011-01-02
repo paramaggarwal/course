@@ -9,7 +9,7 @@ body {
   	color: #77776e;
 }
 
-#Incorrect, #Incorrect.a {
+#Incorrect a, #Incorrect {
 color: red;
 font-size: 9px;
 }
@@ -81,7 +81,7 @@ p, ul { margin-top: 0; }
 img, a img { border: none; }
 
 #footer {
-  padding: 7px 0 2px 0;
+  padding-top: 7px;
   margin: 20px auto 0 auto;
   width: 900px;
   text-align: center;
@@ -90,15 +90,12 @@ img, a img { border: none; }
   background-color: #90C73e;
 }
 
-table.navbar {
+#navbar {
+	padding: 5px 0 5px 0;
 	position: fixed;
-	width: 700px;
 	border-collapse: collapse;
-	margin-left: 300px;
-	margin-top: 50px;
+	margin: 50px auto auto 300px;
 	text-align: center;
-	border-top: 2px solid #90C73e;
-	border-bottom: 2px solid #90C73e;
 	background:#90C73e ;
 	opacity:.8;
 	filter: alpha(opacity=80);
@@ -106,10 +103,8 @@ table.navbar {
 }
 
 table.navbar tr td {
-	height: 25px;
+	width: 133px;
 	font-weight: bold;
-	border-left: 1px solid #cccccc;
-	border-right: 1px solid #cccccc;
 	text-align: center;
 	vertical-align: middle;
 	cursor: pointer;

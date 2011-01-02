@@ -6,6 +6,7 @@
 	<img src="./images/header.png" height=200 width=200 />
 </div>
 
+<div id="navbar">
 	<TABLE class="navbar">
 	<TBODY>
 	<TR>
@@ -19,3 +20,4 @@
 	</TR>
 	</TBODY>
 	</TABLE>
+</div>

@@ -34,7 +34,7 @@ niftyCss=true;
 var l=CreateEl("link");
 l.setAttribute("type","text/css");
 l.setAttribute("rel","stylesheet");
-l.setAttribute("href","http://iiitcslcentral.co.cc/v0.2/css/niftyCorners.css");
+l.setAttribute("href","http://iiitcslcentral.co.cc/css/niftyCorners.css");
 l.setAttribute("media","screen");
 document.getElementsByTagName("head")[0].appendChild(l);
 }
