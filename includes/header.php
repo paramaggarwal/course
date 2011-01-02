@@ -3,7 +3,7 @@
 </div>
 
 <div id="header-image" style="width:7%; height:85%;" >
-	<img src="./images/header.png" style="height:100%; width:100%;" >
+	<img src="http://www.iiitcslcentral.co.cc/images/header.png" style="height:100%; width:100%;" >
 </div>
 
 <div id="navbar">

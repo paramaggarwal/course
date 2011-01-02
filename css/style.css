@@ -28,13 +28,9 @@ font-size: 11px;
   margin: 0 0.5% 0 0.5%;
 }
 
-.expanded { width: auto; }
-
-.nopadding { padding: 0px; }
-.nomargin { margin: 0px; }
-
-div.spacer {
-  width: 1px; height: 1px;
+.spacer {
+  width: 1px; 
+  height: 1px;
   clear: both !important;
 }
 
@@ -70,9 +66,6 @@ a, a:visited {
   color: #F03528; 
 }
 a:hover { text-decoration: underline; }
-a.button:link, a.button:active, a.button:hover, a.button:visited { text-decoration: none; }
-
-.highlight a, .highlight a:visited { color: #F03528; }
 
 form { margin: 0px; }
 
@@ -80,6 +73,7 @@ p, ul { margin-top: 0; }
 img, a img { border: none; }
 
 #footer {
+  float: center;
   padding-top: 7px;
   margin: 20px auto 20px auto;
   width: 900px;
@@ -153,8 +147,6 @@ table.navbar tr td.current:hover {
 
 .banner h2 { margin-right: .5em; }
 
-.main-title { font-family: Georgia, Palatino, Times, "MS Serif", serif; }
-
 /* Hides from IE-mac \*/
 * html .clearfix { height: 1%; }
 .clearfix { display: block; }
@@ -195,24 +187,7 @@ p.togglebutton {
   margin: auto 0 auto 0;
 }
 
-.container_select { padding: 0px; font-size: 0.92em; }
-.container_input { padding: 1px; font-size: 0.92em; }
-.container_button { padding: 0px 3px 0px 3px; }
-
-div#activities_content, div#feedback_content, div#login_content {
-  font-size: .92em;
-}
-
-#feedback { font-size: .96em; }
-
-.feedback_category_header {
-  font-weight: bold;
-  font-size: 13px;
-  font-variant: small-caps;
-}
-
 div.notices {
-  border: 2px solid left right;
   margin-bottom: 8px;
   padding-left: 1.5em;
   padding-right: 1.5em;
@@ -223,83 +198,4 @@ div.notices .body {
   line-height: 150%;
   font-family: Georgia, Palatino, Times, "MS Serif", serif;
   background-color: white;
-}
-
-img.notices { border: 0px; }
-
-h2.notices_title {
-  color: #F03528;
-  font-style: italic;
-  font-family: Georgia, Palatino, Times, "MS Serif", serif;
-}
-
-div.notices_date_top {
-  float: left;
-  padding-top: 10px;
-  padding-bottom: 4px;
-  font-size: 0.9em;
-  color: #77776E; 
-}
-
-div#profiles .title a,
-div#profiles .title a:visited,
-div#profiles .title a:active,
-
-#updates a { color: #77776E; }
-
-ul.sparktree li { margin-bottom: 3px; }
-
-ul.sparktree li.closed ul { display: none; }
-
-ul.sparktree li.open ul {
-  display: block;
-  list-style-type: none;
-  margin-left: 3em;
-  margin-top: .5em;
-  margin-bottom: 1em;
-  padding-left: 0;
-  font-size: 0.83em;
-  font-weight: normal;
-}
-
-ul.sparktree li.open ul li {
-  margin: 0em auto .5em auto;
-}
-
-img.sparktree, img.sparktree_empty {
-  vertical-align: middle;
-  margin-right: 3px;
-  width: 19px;
-  height: 19px;
-}
-img.sparktree { cursor: pointer; }
-
-ul.sparktree li a, ul.sparktree li strong {
-  padding: 2px;
-  font-weight: inherit;
-}
-
-ul.sparktree li a:hover {
-   background-color: white;
-   text-decoration: none;
-}
-
-.sparktree strong,
-.sparktree li ul li strong {
-  background-color: #F03528;
-  color: white;
-}
-
-#about a { color: #77776E; }
-#about a:hover { 
-  text-decoration: none;
-}
-
-#login a { color: #f03528; }
-#login a:hover { 
-  text-decoration: underline;
-}
-
-#updates ul.sparktree li.open ul li a:hover {
-  background-color: white;
-}
+}	

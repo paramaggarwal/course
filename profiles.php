@@ -23,19 +23,16 @@ if(mysql_num_rows($result)>0)
 <head>
 	<title>Communication Skills Lab - <?php if($found) {echo $row['display_name'];?>'s Profile <?php } ?></title>
 	<link href="./css/style.css" rel="stylesheet" type="text/css">
-	<script type="text/javascript" src="./js/preload.js"></script>
-	<script type="text/javascript" src="./js/niftycube.js"></script>
-	<script type="text/javascript" src="./js/jquery-1.2.2.pack.js"></script>
-	<script type="text/javascript" src="./js/animatedcollapse.js"></script>
+	<script type="text/javascript" src="./js/scripts.js"></script>
 	<script type="text/javascript">
-		window.onload=function(){
-			Nifty("div#name,div#profession,div#details,div#footer");
+		$(document).ready(function(){
+                        Nifty("div#box1,div#box2,div#box3,div#footer");
 			Nifty("div#navbar","transparent");
-		}
-		animatedcollapse.addDiv('name_content', 'fade=1')
-		animatedcollapse.addDiv('profession_content', 'fade=1')
-		animatedcollapse.addDiv('details_content', 'fade=1')
-		animatedcollapse.init()
+ 
+                        $("#box1_title").click(function () { $("#box1_content").slideToggle("slow"); });
+                        $("#box2_title").click(function () { $("#box2_content").slideToggle("slow"); });
+                        $("#box3_title").click(function () { $("#box3_content").slideToggle("slow"); });
+                });
 	</script>
 	
 </head>
@@ -49,13 +46,13 @@ if(mysql_num_rows($result)>0)
 if($found) {
 ?>
 	<div class="column">
-		<div class="container" id="name">
-			<div class="title clickable visualIEFloatFix" id="name_title" onmousedown="animatedcollapse.toggle('name_content'); toggleDiv('name_content',2)">
+		<div class="container" id="box1">
+			<div class="title clickable visualIEFloatFix" id="box1_title">
 				<P class="togglebutton">
-				<A href="javascript:;" class="toggle" id="name_content_toggle"><IMG src="http://www.iiitcslcentral.co.cc/images/arrow_down_2.gif"></A></P>
+				<A href="javascript:;" class="toggle" id="box1_content_toggle"><IMG src="http://www.iiitcslcentral.co.cc/images/arrow_down_2.gif"></A></P>
 				<H2>Personal Details</H2>
 			</div>
-			<div class="content" id="name_content" >
+			<div class="content" id="box1_content" >
 			<p><b>Name</b> : <?php echo $row['display_name']; ?></p>
 			<p><b>Roll no.</b> : <?php echo $row['user_login']; ?></p>
 			<p><b>Date of Birth</b> : <?php echo $row['dob']; ?></p>
@@ -64,13 +61,13 @@ if($found) {
 	</div>
         
 	<div class="column">
-		<div class="container" id="profession">
-                		<div class="title clickable visualIEFloatFix" id="profession_title" onmousedown="animatedcollapse.toggle('profession_content'); toggleDiv('profession_content',2)">
+		<div class="container" id="box2">
+                		<div class="title clickable visualIEFloatFix" id="box2_title" >
                   			<P class="togglebutton">
-				<A href="javascript:;" class="toggle" id="profession_content_toggle"><IMG src="http://www.iiitcslcentral.co.cc/images/arrow_down_2.gif"></A></P>
+				<A href="javascript:;" class="toggle" id="box2_content_toggle"><IMG src="http://www.iiitcslcentral.co.cc/images/arrow_down_2.gif"></A></P>
 				<H2>Professional Details</H2>
 			</div>
-			<div class="content" id="profession_content" >
+			<div class="content" id="box2_content" >
 			<p><b>Course</b> : <?php echo $row['course']; ?></p>
 			<p><b>Branch</b> : <?php echo $row['branch']; ?></p>
 			<p><b>Year</b> : <?php echo $row['year']; ?></p>
@@ -80,13 +77,13 @@ if($found) {
 
 	<div class="column">
 		
-		<div class="container" id="details">
-			<div class="title clickable visualIEFloatFix" id="details_title" onmousedown="animatedcollapse.toggle('details_content'); toggleDiv('details_content',2)">
+		<div class="container" id="box3">
+			<div class="title clickable visualIEFloatFix" id="box3_title" >
 				<P class="togglebutton">
-				<A href="javascript:;" class="toggle" id="details_content_toggle"><IMG src="http://www.iiitcslcentral.co.cc/images/arrow_down_2.gif"></A></P>
+				<A href="javascript:;" class="toggle" id="box3_content_toggle"><IMG src="http://www.iiitcslcentral.co.cc/images/arrow_down_2.gif"></A></P>
 				<H2>Other Details</H2>
 			</div>
-			<div class="content" id="details_content" >
+			<div class="content" id="box3_content" >
  			<p><b>Father's Name</b> : <?php echo $row['father_name']; ?></p>
 			<p><b>Address</b> : 
 				<p><?php echo $row['address']; ?></p>
