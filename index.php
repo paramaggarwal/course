@@ -154,9 +154,7 @@
 			<div style="clear: both; height: 6px; overflow: hidden;"></div>
 			<div class="body">
 				<div style="text-align: left;">
-					<p style="display: block;">
-            						This needs to include a php file that will make lists, out of statements given from the administrative panel...
-					</p>
+				<p><?php include("./includes/notices.php"); ?></p>
 				</div>
           			</div>
 		</div>
@@ -209,7 +207,7 @@
 				<H2>Activities</H2>
 			</div>
 			<div class="content" id="activities_content" >
- 				Works like Notices. Mostly a student will be made incharge of updating this part... Its like news...
+ 				<p><?php include("./includes/activities.php"); ?></p>
 			</div>
 		</div>
 		<div class="container" id="feedback">
