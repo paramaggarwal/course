@@ -2,10 +2,12 @@
 
 session_start();
 
-if ( $_POST["logout"] == "true")
+unset($_SESSION['username']);
+unset($_SESSION['password']);
+unset($_SESSION['level']);
+unset($_SESSION['name']);
 
 session_destroy();
 header("Location: http://www.iiitcslcentral.co.cc/");
-
 
 ?>	

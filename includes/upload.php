@@ -13,7 +13,7 @@ if( $_SESSION['level'] == 1 ) {
 	$msg .= "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
 
 	if (file_exists("upload/" . $_FILES["file"]["name"])) {
-		$msg .= $_FILES["file"]["name"] . " already exists. ";
+		$msg = "A file with that name already exists. Hence, this file was not Uploaded!";
 	}
 	else {
 		move_uploaded_file($_FILES["file"]["tmp_name"],
@@ -92,7 +92,7 @@ else {
 </div>
 	<div class="column">
 
-		<div class="container" id="box1">
+		<div class="container" id="box1" style="width:800px">
 
 			<div class="title clickable visualIEFloatFix" id="box1_title" >
 

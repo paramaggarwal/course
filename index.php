@@ -104,6 +104,7 @@
 			$("#box7_title").click(function () { $("#box7_content").slideToggle("normal"); toggleArrow(7);});
 			$("#box8_title").click(function () { $("#box8_content").slideToggle("normal"); toggleArrow(8);});
 			$("#box9_title").click(function () { $("#box9_content").slideToggle("normal"); toggleArrow(9);});
+			$("#box10_title").click(function () { $("#box10_content").slideToggle("normal"); toggleArrow(10);});
 
 			$("input[value='Login']").click(function () {
                                 $("#loading_login").html("<img src='./images/spinner.gif' />");
@@ -213,7 +214,7 @@
 			<div class="title clickable visualIEFloatFix" id="box2_title" >
 				<P class="togglebutton">
 				<A href="javascript:;" class="toggle" id="box2_content_toggle"><IMG src="./images/arrow_down_2.png"></A></P>
-				<H2><?php if($_SESSION['name'] != '') {echo $_SESSION['name']."\'s";} ?> Profile</H2>
+				<H2><?php if($_SESSION['name'] != '') {echo $_SESSION['name']."'s";} ?> Profile</H2>
 			</div>
 			<div class="content" id="box2_content" >
                                 <div align=right ><a href="editprofile.php">Edit</a></div>
@@ -282,7 +283,41 @@
 				<div align="left"><div id="SearchMessage" style="display:none;" class="error"></div></div>
 			</div>
 		</div>
+<?php
+	if( $_SESSION['loginok'] == "ok" && $_SESSION['level'] == '1')
+	{
+?>
+		<div class="container" id="box10">
+			<div class="title clickable visualIEFloatFix" id="box10_title" >
+				<P class="togglebutton">
+				<A href="javascript:;" class="toggle" id="box10_content_toggle"><IMG src="./images/arrow_down_2.png"></A></P>
+				<H2>Voting Box</H2>
+			</div>
+			<div class="content" id="box10_content" >
+					<?php include("./includes/voting.php"); ?>
+			</div>
+		</div>
 
+<?php
+	}
+	else if( $_SESSION['loginok'] == "ok" && $_SESSION['level'] == '2')
+	{
+?>
+
+
+		<div class="container" id="box10">
+			<div class="title clickable visualIEFloatFix" id="box10_title" >
+				<P class="togglebutton">
+				<A href="javascript:;" class="toggle" id="box10_content_toggle"><IMG src="./images/arrow_down_2.png"></A></P>
+				<H2>Voting Results</H2>
+			</div>
+			<div class="content" id="box10_content" >
+				<?php include("./includes/votingresults.php"); ?>
+			</div>
+		</div>
+<?php
+	}
+?>
 <?php
 	if( $_SESSION['loginok'] == "ok" && $_SESSION['level'] == '1')
 	{
@@ -294,7 +329,7 @@
 				<H2>CSL Reference</H2>
 			</div>
 			<div class="content" id="box8_content" >
-					Important sites here.
+			<?php include('./includes/reference.php'); ?>
 			</div>
 		</div>
 
@@ -309,7 +344,7 @@
 			<div class="title clickable visualIEFloatFix" id="box8_title" >
 				<P class="togglebutton">
 				<A href="javascript:;" class="toggle" id="box8_content_toggle"><IMG src="./images/arrow_down_2.png"></A></P>
-				<H2>Results</H2>
+				<H2>Upload Results</H2>
 			</div>
 			<div class="content" id="box8_content" >
 				Upload the Results PDF here.
@@ -349,6 +384,7 @@ if( $_SESSION['loginok'] == "ok" && $_SESSION['level'] == '1')
 <?php
 }
 ?>
+
 	</div>
 	<div class="column">
 <?php
@@ -367,7 +403,7 @@ if( $_SESSION['loginok'] == "ok" && $_SESSION['level'] == '1')
 <?php
 if($_SESSION['loginok'] == "ok" && $_SESSION['level'] == '4')
 {
-echo "<a href='http://www.iiitcslcentral.co.cc/includes/mail.php' >Send mail to all</a>";
+echo "<br /><a href='http://www.iiitcslcentral.co.cc/includes/mail.php' >Send mail to all</a>";
 }
 ?>
 				<form align="right" action="./includes/logout.php" method="post">

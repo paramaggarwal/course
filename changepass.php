@@ -78,7 +78,7 @@ if(isset($_POST['submit']))
 
 <?php include('./includes/header.php'); ?>
 
-	<div class="column" style="width:900px">
+	<div style="width:35%; margin:auto;">
 
 		<div class="container" id="box1" >
 
@@ -88,7 +88,7 @@ if(isset($_POST['submit']))
 
 				<A href="javascript:;" class="toggle" id="box1_content_toggle"><IMG src="./images/arrow_down_2.png"></A></P>
 
-				<H2>Edit Your Profile</H2>
+				<H2>Change Password</H2>
 
 			</div>
 
@@ -128,7 +128,7 @@ if(isset($_POST['submit']))
 
 	 <tr>
 
-       <td bgcolor="#E0E0E0" height="30"><div align="right" class="style1">Retype Password:</div></td>
+       <td bgcolor="#E0E0E0" height="30"><div align="right" class="style1">Confirm Password:</div></td>
 
 	   <td width="272">
 

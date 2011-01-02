@@ -1,6 +1,45 @@
-<?php
+<?php session_start(); ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-session_start();
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+	<title>Mail to All</title>
+	<link href="../css/style.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="../js/scripts.js"></script>
+	<script type="text/javascript">
+		function toggleArrow(id) {
+			if ( $("#box" + id + "_content").css("height") == '1px' ) {
+				$("#box" + id + "_content_toggle").html("<img src='../images/arrow_down_2.png'>");
+			}
+			else {
+				$("#box" + id + "_content_toggle").html("<img src='../images/arrow_right_2.png'>");
+			}
+		}
+
+		$(document).ready(function(){
+			Nifty("div.container,div.menu", "transparent");
+
+			$("#box1_title").click(function () { $("#box1_content").slideToggle("normal"); toggleArrow(1);});
+		});
+	</script>
+
+</head>
+
+<body>
+
+<?php include('./header.php'); ?>
+	<div style="width: 50%; margin:auto;">
+		<div class="container" id="box1">
+			<div class="title clickable visualIEFloatFix" id="box1_title" >
+				<P class="togglebutton">
+				<A href="javascript:;" class="toggle" id="box1_content_toggle"><IMG src="../images/arrow_down_2.png"></A></P>
+				<H2 align="left">Send mail to All</H2>
+			</div>
+			<div class="content" id="box1_content" align="left">
+
+<?php
 if( $_SESSION['level'] == 4 && $_SESSION['loginok'] == "ok") {
 
 $subject = "IIIT CSL Central";
@@ -58,22 +97,23 @@ for($i=8001; $i<8080; $i++) {
 	echo "Mail sent successfully...";
 }
 ?>
-<html>
-<head>
-<title>Mail to First Year Students</title>
-</head>
-<body>
-<h1> Send mail to all first-year students</h1>
-<h2>For internal use only!</h2><br /><br />
-<form name="form1" action="" method = "post">
-Subject: <br /><input type="text" name="subject" value = "<?php echo $subject; ?>"style="width:60%;"/><br /><br />
-Mail: <br /><textarea name="contents" style="width:60%; height:40%;"><?php echo $message; ?></textarea><br /><br />
-<input type="submit" name="submit" value="Send that f****** mail!">
-</form>
-</body>
-</html>
+
+				<form name="form1" action="" method = "post">
+				Subject: <br /><input type="text" name="subject" value = "<?php echo $subject; ?>"style="width:90%;"/><br /><br />
+				Mail: <br /><textarea name="contents" style="width:90%; height:300px"><?php echo $message; ?></textarea><br /><br />
+				<input type="submit" name="submit" value="Send mail to all">
+				</form>
+
 <?php
 } else {
 	echo "Please login as admin.";
 }
-?>  
+?> 
+
+			</div>
+		</div>
+	</div>
+<div class="spacer"></div>
+</div>
+<?php include("./footer.php"); ?>
+</body></html>

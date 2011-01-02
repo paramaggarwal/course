@@ -211,10 +211,10 @@ The ability to make clear, interesting and relevant presentations is increasingl
 For Formal Writing Skills the following things are to be taken care of</p>
 <p>In general, it is inappropriate simply to write as you would speak.
 <ul>
-<li><h3>Formal Writing is not just any conversation</h3></li>
+<li><b>Writing formally</b></li>
 <p> In conversation, the listener can ask for clarification or elaboration easily, and thus the speaker can use imprecise language, ramble from topic to topic freely, and so on. Formal writing must instead stand on its own, conveying the author's thesis clearly through words alone. As a result, formal writing requires substantial effort to construct meaningful sentences, paragraphs, and arguments relevant to a well-defined thesis. The best formal writing will be difficult to write but very easy to read; the author's time and effort spent on writing will be repaid with the time and effort saved by the readers. 
 </p>
-<li><h3>Making thesis obvious throughout</h3></li>
+<li><b>Making a good thesis</b></li>
 <p>An essay, article, or report should have one main topic (the "thesis") that is clearly evident in the introduction and conclusion. Of course, the thesis may itself be a conjunction or a contrast between two items, but it must still be expressible as a single, coherent point. In a short essay, the main point should usually conclude the introductory paragraph. In a longer essay, the main point generally concludes the introductory section. The reader should never be in any doubt about what your thesis is; whenever you think it might not be absolutely obvious, remind the reader again. 
 </p>
 </ul>

@@ -101,7 +101,7 @@ if(isset($_POST['submit']))
 <?php include('./includes/header.php'); ?>
 
 
-	<div class="column" style="width:900px">
+	<div style="width:40%; margin:auto;">
 
 		<div class="container" id="box1" >
 
