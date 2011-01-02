@@ -4,11 +4,14 @@ $phpbb_root_path = (defined('PHPBB_ROOT_PATH')) ? PHPBB_ROOT_PATH : 'http://iiit
 $phpEx = substr(strrchr(__FILE__, '.'), 1);
 include($phpbb_root_path . 'common.' . $phpEx);
 
+
+/*
 // Start session management
 $user->session_begin();
 $auth->acl($user->data);
 $user->setup('ucp');
-
+echo "Here??";
+*/
 //
 // Configuration
 //
@@ -33,8 +36,8 @@ function phpbb_trim_text(&$text, &$is_trimmed, $number)
 //
 // Auth
 //
-$can_read_forum = $auth->acl_getf('f_read');    //Get the forums the user can read from
-$forum_id_ary = array_keys($can_read_forum);    //Rework the array some
+//$can_read_forum = $auth->acl_getf('f_read');    //Get the forums the user can read from
+//$forum_id_ary = array_keys($can_read_forum);    //Rework the array some
 $authed_news_ary = array();
 
 //Of the desired forums, pull out the authed ones
@@ -103,4 +106,5 @@ else
 {
     echo 'No posts to display<br />';
 }
+
 ?>

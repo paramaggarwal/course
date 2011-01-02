@@ -1,1 +1,1 @@
-<div id="footer">CSL Project &nbsp;|&nbsp; Allahabad, India </div>
+<div id="footer"><p>CSL Project &nbsp;|&nbsp; Allahabad, India</p></div>

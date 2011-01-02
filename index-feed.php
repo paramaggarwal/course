@@ -4,11 +4,14 @@
 <head>
 	<title>Communication Skills Lab - IIIT, Allahabad</title>
 	<link href="./css/style.css" rel="stylesheet" type="text/css">
-	<script type="text/javascript" src="./js/preload.js"></script>
 	<script type="text/javascript" src="./js/niftycube.js"></script>
+	<script type="text/javascript" src="./js/preload.js"></script>
 	<script type="text/javascript" src="./js/jquery-1.2.2.pack.js"></script>
 	<script type="text/javascript" src="./js/animatedcollapse.js"></script>
+	<script type="text/javascript" src="./js/ajax.js"></script>
+	<script type="text/javascript" src="./js/login.js"></script>
 	<script type="text/javascript" src="./js/capslock.js"></script>
+    <script type="text/javascript" src="./js/feedback.js"></script>
 	<script type="text/javascript">
 		window.onload=function(){
 			Nifty("div#updates,div#about,div#profiles,div#banner,div#login,div#activities,div#feedback,div#footer");
@@ -20,67 +23,10 @@
 		animatedcollapse.addDiv('activities_content', 'fade=1')
 		animatedcollapse.addDiv('feedback_content', 'fade=1')
 		animatedcollapse.init()
+		animatedcollapse.init()
+		
 	</script>
-	
-	<script type="text/javascript">
-		var url = "./includes/login.php";
-		var what = "LoginStatus(req.responseText)";
-
-		function CheckLogin()
-		{
-			var username = document.getElementById("username").value;
-			var password = document.getElementById("password").value;
-				
-			if(username == '' && password == '') {
-				document.getElementById('Incorrect').innerHTML = "";
-			} else {
-				DoCallback_login("username="+username+"&password="+password);
-			}
-		}
-
-		function LoginStatus(Status_l)
-		{
-			if(Status_l == 0) {
-				document.getElementById('Incorrect').innerHTML = 'Username or Password seems wrong.<br>Did you <a href="forgot.php">forget your password</a>?';
-			}
-			else {
-				document.getElementById('Incorrect').innerHTML = "";
-			}
-		}
-	</script>
-	
-	<script type="text/javascript" >
-		var urlf = "./includes/feedback.php";
-		var whatf = "FeedbackStatus(req.responseText)";
-
-		function PostFeedback()
-		{	
-			var feedback = document.getElementById("feedback").value;
-			var email = document.getElementById("email").value;
-				
-			if(feedback == '' || email == '') {
-				document.getElementById('FeedbackMessage').innerHTML = "";
-			} else {
-				DoCallback_feedback("feedback="+feedback+"&email="+email);
-			}
-		}
-
-		function FeedbackStatus(Status_f)
-		{
-			if(Status_f == 0) {
-				document.getElementById('FeedbackMessage').innerHTML = 'The Feedback could not be sent!';
-			}
-			else if(Status_f == 1){
-				document.getElementById('FeedbackMessage').innerHTML = "Feedback Sent Successfully!!!";
-			}
-			else {
-				document.getElementById('FeedbackMessage').innerHTML = "";
-			}	
-		}
-	</script>
-
-	<script type="text/javascript" src="./js/ajax.js"></script>
-	
+    <script type="text/javascript" src="./js/ajaxf.js"></script>
 </head>
 
 <body>
@@ -148,6 +94,7 @@
 				<H2>Login</H2>
 			</div>
 			<div class="content" id="login_content" >
+			<!--<form name="form1" method="post" action="">-->
 				<table style="width:100%;" align="center">
 				<tr>
 					<td align="right" bgcolor="#E0E0E0" class="tablecontents" >Username:</td>
@@ -162,9 +109,10 @@
 				</tr>
 				<tr>
 					<td ></td>
-					<td align="center"><input type="button" style="padding: 1px 12px 1px 12px;" value="Login" onclick="CheckLogin()"></td>
+					<td align="center"><input type="button" style="padding: 1px 12px 1px 12px;" value="Login" onclick="CheckLogin()">			</td>
 				</tr>
 				</table>
+			<!--</form>-->
 			</div>
 		</div>
 		<div class="container" id="activities">
@@ -189,7 +137,7 @@
 						<P class="center"><TEXTAREA name="feedback" id="feedback" rows="5" cols="20" style="width:158px;"></TEXTAREA></P>
     						<P>Please include your email address if you&#39;d like us to respond to a specific question.<BR></P>
 						<P class="center"><INPUT type="text" name="email" id="email" style="width:158px;"></P>
-                        					<p class="center"><div id="FeedbackMessage"></div></p>
+                        <p class="center"><div id="FeedbackMessage"></div></p>
 						<P style="align:right"><INPUT type="button" value="Submit" onclick="PostFeedback()"></P>
 				</div>
 			</div>

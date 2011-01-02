@@ -9,11 +9,6 @@ body {
   	color: #77776e;
 }
 
-#Incorrect, #Incorrect.a {
-color: red;
-font-size: 9px;
-}
-
 #main {
 	width: 900px;
 	text-align: left;
@@ -240,9 +235,37 @@ div.notices_date_top {
   color: #77776E; 
 }
 
-div#profiles .title a,
+div#profiles {
+  background-color:  rgb(240, 53, 40);
+}
+
+div#profiles .title {
+  color: white;
+  font-weight: bold;
+  padding: 8px;
+  font-size: .92em;
+  margin-top: 4px;
+}
+
+div#proflies .title a,
 div#profiles .title a:visited,
 div#profiles .title a:active,
+div#profiles .title h2 {
+  color: white;
+  display: inline;
+}
+
+div#profiles .content {
+  border-color:rgb(240, 53, 40);
+  border-style: solid;
+  border-left-width:1px;
+  border-right-width: 1px;
+  background-color: #FFFFFF;
+  padding: 0px;
+  padding-top: 10px;
+}
+
+h2.profiles { color: #FFFFFF; }
 
 #updates a { color: #77776E; }
 
