@@ -11,7 +11,7 @@
 	<TBODY>
 	<TR>
 	
-	<TD class="current" onclick="location.href='http://www.iiitcslcentral.co.cc/'; ">Home</TD>
+	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/'; ">Home</TD>
 	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/chit-chat/'; ">Chit-Chat</TD>
 	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/results/'; ">Results</TD>
 	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/contact/'; ">Contact</TD>

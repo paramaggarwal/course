@@ -9,20 +9,21 @@
 	<link rel="stylesheet" href="<?php bb_active_theme_uri(); ?>layout.css" type="text/css" />
 	
 	<link href="http://iiitcslcentral.co.cc/css/style.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="http://iiitcslcentral.co.cc/js/niftycube.js"></script>
-	<script type="text/javascript" src="http://iiitcslcentral.co.cc/js/jquery-1.2.2.pack.js"></script>
-	<script type="text/javascript" src="http://iiitcslcentral.co.cc/js/animatedcollapse.js"></script>
+	<script type="text/javascript" src="http://iiitcslcentral.co.cc/js/scripts.js"></script>
 	<script type="text/javascript">
-		window.onload = function() {
-			Nifty("div#footer,div#login,div#latestupdates,div#forums,div#forum,div#topic");
-			Nifty("div#navbar","transparent");
-			}
-		animatedcollapse.addDiv('login_content', 'fade=1')
-		animatedcollapse.addDiv('latestupdates_content', 'fade=1')
-		animatedcollapse.addDiv('forums_content', 'fade=1')
-                animatedcollapse.addDiv('forum_content', 'fade=1')
-                animatedcollapse.addDiv('topic_content', 'fade=1')
-		animatedcollapse.init()
+		
+                $(document).ready(function(){
+
+                        Nifty("div#login,div#latestupdates,div#forums,div#forum,div#topic,div#footer");
+			Nifty("div#navbar,div#notices","transparent");
+
+                        $("#login_title").click(function () { $("#login_content").slideToggle("normal"); toggleArrow(1);});
+                        $("#latestupdates_title").click(function () { $("#latestupdates_content").slideToggle("normal"); toggleArrow(2);});
+                        $("#forums_title").click(function () { $("#forums_content").slideToggle("normal"); toggleArrow(3);});
+                        $("#forum_title").click(function () { $("#forum_content").slideToggle("normal"); toggleArrow(4);});
+                        $("#topic_title").click(function () { $("#topic_content").slideToggle("normal"); toggleArrow(5);});
+                 });
+
 	</script>
 
 <?php if ( is_topic() && bb_is_user_logged_in() ) : ?>

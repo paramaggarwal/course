@@ -50,7 +50,7 @@ if (isset($_POST['username']) && isset($_POST['password']))
 
 		{		
 
-                        $_SESSION['loginok'] = "ok";
+            $_SESSION['loginok'] = "ok";
 
 			$_SESSION['username'] = $username;
 
@@ -58,11 +58,7 @@ if (isset($_POST['username']) && isset($_POST['password']))
 
 			$_SESSION['level'] = $row["user_level"];
 
-			$_SESSION['name'] = $name;
-			
-			$_SESSION['id'] = $row["ID"];		
-
-			
+			$_SESSION['name'] = $name;	
 
 			echo 1;
 
