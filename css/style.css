@@ -3,7 +3,7 @@ body {
 	padding: 0;
   	font-family: Arial, "MS Sans Serif", "Geneva", sans-serif;
   	font-size: 12px;
-  	background-color: #ffffff;
+  	background: url(./images/bg.png) repeat-x 0px 100% rgb(0, 48, 69);
   	color: #77776e;
 }
 
@@ -16,7 +16,7 @@ font-size: 11px;
 	width: 900px;
 	text-align: left;
 	margin: 0 auto 0 auto;
-	background-color: #ffffff;
+	background: transparent;
 	padding: 90px 10px 0px 10px;
 
 }

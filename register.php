@@ -36,12 +36,20 @@ header("Location: http://www.iiitcslcentral.co.cc/profiles.php?rollno=" . $user_
 	<link href="./css/style.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="./js/scripts.js"></script>
 	<script type="text/javascript">
-		window.onload=function(){
-			Nifty("div#box1,div#footer");
-			Nifty("div#navbar","transparent");
+		function toggleArrow(id) {
+			if ( $("#box" + id + "_content").css("height") == '1px' ) {
+				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_down_2.gif'>");
+			}
+			else {
+				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_right_2.gif'>");
+			}
 		}
-		animatedcollapse.addDiv('box1_content', 'fade=1')
-		animatedcollapse.init()
+
+		$(document).ready(function(){
+			Nifty("div#box1,div#footer,div#navbar");
+
+			$("#box1_title").click(function () { $("#box1_content").slideToggle("normal"); toggleArrow(1);});
+		});
 	</script>
 	
 </head>
@@ -57,7 +65,7 @@ if($_SESSION['loginok'] == "ok" && $_SESSION['level'] == "4")
 ?>
 	<div class="column" style="width:100%;">
 		<div class="container" id="box1">
-			<div class="title clickable visualIEFloatFix" id="box1_title" onmousedown="animatedcollapse.toggle('box1_content'); toggleDiv('box1_content',2)">
+			<div class="title clickable visualIEFloatFix" id="box1_title" ">
 				<P class="togglebutton">
 				<A href="javascript:;" class="toggle" id="box1_content_toggle"><IMG src="http://www.iiitcslcentral.co.cc/images/arrow_down_2.gif"></A></P>
 				<H2>Register</H2>

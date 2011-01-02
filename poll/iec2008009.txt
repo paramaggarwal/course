@@ -1,0 +1,1 @@
+Very Bad (0)|Needs Improvement (1)|Bad (2)|Not Good (3)|Worse than Average (4)|Average (5)|Better than Average (6)|Very Good (7)|Excellent (8)|Just Awesome (9)||1||||||||

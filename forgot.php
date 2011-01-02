@@ -79,16 +79,22 @@ mysql_close ($con);
 <head>
 	<title>Communication Skills Lab - IIIT, Allahabad</title>
 	<link href="./css/style.css" rel="stylesheet" type="text/css">
-	<script type="text/javascript" src="./js/preload.js"></script>
-	<script type="text/javascript" src="./js/niftycube.js"></script>
-	<script type="text/javascript" src="./js/jquery-1.2.2.pack.js"></script>
-	<script type="text/javascript" src="./js/animatedcollapse.js"></script>
+	<script type="text/javascript" src="./js/scripts.js"></script>
 	<script type="text/javascript">
-		window.onload=function(){
-			Nifty("div#forgot,div#footer");
+		function toggleArrow(id) {
+			if ( $("#box" + id + "_content").css("height") == '1px' ) {
+				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_down_2.gif'>");
+			}
+			else {
+				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_right_2.gif'>");
+			}
 		}
-		animatedcollapse.addDiv('forgot_content', 'fade=1')
-		animatedcollapse.init()
+
+		$(document).ready(function(){
+			Nifty("div#box1,div#footer,div#navbar");
+
+			$("#box1_title").click(function () { $("#box1_content").slideToggle("normal"); toggleArrow(1);});
+		});
 	</script>
 	
 </head>
@@ -97,13 +103,13 @@ mysql_close ($con);
 <?php include("./includes/header.php"); ?>
 <div id="main">
 	<div class="column" style="width:900px">
-		<div class="container" id="forgot" >
-			<div class="title clickable visualIEFloatFix" id="forgot_title" onmousedown="animatedcollapse.toggle('forgot_content'); toggleDiv('forgot_content',2)">
+		<div class="container" id="box1" >
+			<div class="title clickable visualIEFloatFix" id="box1_title" >
 				<P class="togglebutton">
-				<A href="javascript:;" class="toggle" id="forgot_content_toggle"><IMG src="./images/arrow_down_2.gif"></A></P>
+				<A href="javascript:;" class="toggle" id="box1_content_toggle"><IMG src="./images/arrow_down_2.gif"></A></P>
 				<H2>Forgot Password</H2>
 			</div>
-			<div class="content" id="forgot_content" >
+			<div class="content" id="box1_content" >
 
 
 			<table style="width:90%;">

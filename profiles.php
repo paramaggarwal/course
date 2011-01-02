@@ -25,13 +25,23 @@ if(mysql_num_rows($result)>0)
 	<link href="./css/style.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="./js/scripts.js"></script>
 	<script type="text/javascript">
+	
+	
+		function toggleArrow(id) {
+			if ( $("#box" + id + "_content").css("height") == '1px' ) {
+				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_down_2.gif'>");
+			}
+			else {
+				$("#box" + id + "_content_toggle").html("<img src='./images/arrow_right_2.gif'>");
+			}
+		}
+
 		$(document).ready(function(){
-                        Nifty("div#box1,div#box2,div#box3,div#footer");
-			Nifty("div#navbar","transparent");
+                        Nifty("div#box1,div#box2,div#box3,div#navbar,div#footer");
  
-                        $("#box1_title").click(function () { $("#box1_content").slideToggle("slow"); });
-                        $("#box2_title").click(function () { $("#box2_content").slideToggle("slow"); });
-                        $("#box3_title").click(function () { $("#box3_content").slideToggle("slow"); });
+                        $("#box1_title").click(function () { $("#box1_content").slideToggle("normal"); toggleArrow(1);});
+                        $("#box2_title").click(function () { $("#box2_content").slideToggle("normal"); toggleArrow(2);});
+                        $("#box3_title").click(function () { $("#box3_content").slideToggle("normal"); toggleArrow(3);});
                 });
 	</script>
 	
