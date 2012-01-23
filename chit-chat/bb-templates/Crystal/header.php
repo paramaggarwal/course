@@ -8,16 +8,16 @@
 	<link rel="stylesheet" href="<?php bb_stylesheet_uri(); ?>" type="text/css" />
 	<link rel="stylesheet" href="<?php bb_active_theme_uri(); ?>layout.css" type="text/css" />
 	
-	<link href="http://iiitcslcentral.co.cc/css/style.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="http://iiitcslcentral.co.cc/js/scripts.js"></script>
+	<link href="http://cms.paramaggarwal.com/css/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="http://cms.paramaggarwal.com/js/scripts.js"></script>
 	<script type="text/javascript">
 
 		function toggleArrow(id) {
 			if ( $("#box" + id + "_content").css("height") == '1px' ) {
-				$("#box" + id + "_content_toggle").html("<img src='http://iiitcslcentral.co.cc/images/arrow_down_2.png'>");
+				$("#box" + id + "_content_toggle").html("<img src='http://cms.paramaggarwal.com/images/arrow_down_2.png'>");
 			}
 			else {
-				$("#box" + id + "_content_toggle").html("<img src='http://iiitcslcentral.co.cc/images/arrow_right_2.png'>");
+				$("#box" + id + "_content_toggle").html("<img src='http://cms.paramaggarwal.com/images/arrow_right_2.png'>");
 			}
 		}
 
@@ -77,11 +77,11 @@
 	<TBODY>
 	<TR>
 	
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/'; ">Home</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/chit-chat/'; ">Chit-Chat</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/results.php'; ">Results</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/contact.php'; ">Contact</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/about.php'; ">About</TD>
+	<TD onclick="location.href='http://cms.paramaggarwal.com/'; ">Home</TD>
+	<TD onclick="location.href='http://cms.paramaggarwal.com/chit-chat/'; ">Chit-Chat</TD>
+	<TD onclick="location.href='http://cms.paramaggarwal.com/results.php'; ">Results</TD>
+	<TD onclick="location.href='http://cms.paramaggarwal.com/contact.php'; ">Contact</TD>
+	<TD onclick="location.href='http://cms.paramaggarwal.com/about.php'; ">About</TD>
 	
 	</TR>
 	</TBODY>
@@ -94,7 +94,7 @@
 	<div class="title clickable visualIEFloatFix" id="login_title" >
 	<P class="togglebutton">
 	<A href="javascript:;" class="toggle" id="login_content_toggle">
-	<IMG src="http://www.iiitcslcentral.co.cc/images/arrow_down_2.gif"></A></P>
+	<IMG src="http://cms.paramaggarwal.com/images/arrow_down_2.gif"></A></P>
 				<?php if ( $bb_current_user->ID ) : ?>
      					<div id="profiles">
 	 					<h2>Profile</h2>

@@ -1,9 +1,9 @@
 //preload.js
 pic1= new Image(20,20); 
-pic1.src="http://www.iiitcslcentral.co.cc/images/arrow_down_2.gif"; 
+pic1.src="http://cms.paramaggarwal.com/images/arrow_down_2.gif"; 
 
 pic2= new Image(20,20); 
-pic2.src="http://www.iiitcslcentral.co.cc/images/arrow_right_2.gif";
+pic2.src="http://cms.paramaggarwal.com/images/arrow_right_2.gif";
 
 
 //niftycube.js"
@@ -45,7 +45,7 @@ niftyCss=true;
 var l=CreateEl("link");
 l.setAttribute("type","text/css");
 l.setAttribute("rel","stylesheet");
-l.setAttribute("href","http://iiitcslcentral.co.cc/css/niftyCorners.css");
+l.setAttribute("href","http://cms.paramaggarwal.com/css/niftyCorners.css");
 l.setAttribute("media","screen");
 document.getElementsByTagName("head")[0].appendChild(l);
 }

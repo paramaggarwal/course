@@ -26,7 +26,7 @@
 			}
 			else if(loginStatus == 1) {
                                 $("#loading_login").html("");
-				window.location = "http://www.iiitcslcentral.co.cc/";
+				window.location = "http://cms.paramaggarwal.com/";
 			}
 			else {
                                 $("#loading_login").html("");
@@ -403,7 +403,7 @@ if( $_SESSION['loginok'] == "ok" && $_SESSION['level'] == '1')
 <?php
 if($_SESSION['loginok'] == "ok" && $_SESSION['level'] == '4')
 {
-echo "<br /><a href='http://www.iiitcslcentral.co.cc/includes/mail.php' >Send mail to all</a>";
+echo "<br /><a href='http://cms.paramaggarwal.com/includes/mail.php' >Send mail to all</a>";
 }
 ?>
 				<form align="right" action="./includes/logout.php" method="post">

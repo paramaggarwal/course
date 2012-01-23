@@ -9,11 +9,11 @@
 	<TBODY>
 	<TR>
  
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/'; ">Home</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/chit-chat/'; ">Chit-Chat</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/results.php'; ">Results</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/contact.php'; ">Contact</TD>
-	<TD onclick="location.href='http://www.iiitcslcentral.co.cc/about.php'; ">About</TD>
+	<TD onclick="location.href='http://cms.paramaggarwal.com/'; ">Home</TD>
+	<TD onclick="location.href='http://cms.paramaggarwal.com/chit-chat/'; ">Chit-Chat</TD>
+	<TD onclick="location.href='http://cms.paramaggarwal.com/results.php'; ">Results</TD>
+	<TD onclick="location.href='http://cms.paramaggarwal.com/contact.php'; ">Contact</TD>
+	<TD onclick="location.href='http://cms.paramaggarwal.com/about.php'; ">About</TD>
  
 	</TR>
 	</TBODY>

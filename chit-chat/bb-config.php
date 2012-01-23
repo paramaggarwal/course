@@ -1,10 +1,10 @@
 <?php
 
 // ** MySQL settings ** //
-define('BBDB_NAME', 'fees0_2495505_csl');      // The name of the database
-define('BBDB_USER', 'fees0_2495505');     // Your MySQL username
-define('BBDB_PASSWORD', 'csliiit'); // ...and password
-define('BBDB_HOST', 'sql206.0fees.net');    // 99% chance you won't need to change these last few
+define('BBDB_NAME', 'mysql');      // The name of the database
+define('BBDB_USER', 'root');     // Your MySQL username
+define('BBDB_PASSWORD', 'ZZ9lfaeFXksgsewl56RK'); // ...and password
+define('BBDB_HOST', '24750a16.dotcloud.com:8974');    // 99% chance you won't need to change these last few
 
 define('BBDB_CHARSET', 'utf8');      // If you are *upgrading*, and your old bb-config.php does
 define('BBDB_COLLATE', '');          // not have these two contstants in them, DO NOT define them

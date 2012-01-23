@@ -1,13 +1,13 @@
 <?php
-$localhost = "sql206.0fees.net"; 
-$dbuser = "fees0_2495505"; 
-$dbpass = "csliiit"; 
-$dbtable = "fees0_2495505_csl";
+$localhost = "24750a16.dotcloud.com:8974"; 
+$dbuser = "root"; 
+$dbpass = "ZZ9lfaeFXksgsewl56RK"; 
+$dbtable = "mysql";
 
-$site_url = "http://iiitcslcentral.co.cc"; 
+$site_url = "http://cms.paramaggarwal.com"; 
 $site_folder = "index.php"; 
 $sendersName = "CSL Central, IIIT Allahabad";
-$sendersEmail = "pranjaltech@gmail.com"; 
+$sendersEmail = "paramaggarwal@gmail.com"; 
 $con = mysql_connect("$localhost","$dbuser","$dbpass")
 
         or die("Error Could not connect");
